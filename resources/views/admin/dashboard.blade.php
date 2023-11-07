@@ -12,10 +12,14 @@
 	<link href="{{  asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
 	<link href="{{  asset('adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
 	<link href="{{  asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+	<link href="{{  asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
+
 	<!-- loader-->
 	<link href="{{  asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
 	<script src="{{  asset('adminbackend/assets/js/pace.min.js') }}"></script>
 	<!-- Bootstrap CSS -->
+	<link href="{{  asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
 	<link href="{{  asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{  asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{  asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
@@ -23,6 +27,18 @@
 	<link rel="stylesheet" href="{{  asset('adminbackend/assets/css/dark-theme.css') }}" />
 	<link rel="stylesheet" href="{{  asset('adminbackend/assets/css/semi-dark.css') }}" />
 	<link rel="stylesheet" href="{{  asset('adminbackend/assets/css/header-colors.css') }}" />
+	
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
+     alpha/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<title>Admin dashboard</title>
 </head>
 
@@ -47,27 +63,82 @@
 
 	<!--end switcher-->
 	<!-- Bootstrap JS -->
-	<script src="{{  asset('admindashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/js/bootstrap.bundle.min.js') }}"></script>
 	<!--plugins-->
-	<script src="{{  asset('admindashboard/assets/js/jquery.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
-    <script src="{{  asset('admindashboard/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/jquery-knob/excanvas.js') }}"></script>
-	<script src="{{  asset('admindashboard/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+    <script src="{{  asset('frontend/assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{  asset('frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{  asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/jquery-knob/excanvas.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
 	  <script>
 		  $(function() {
 			  $(".knob").knob();
 		  });
 	  </script>
-	  <script src="{{  asset('admindashboard/assets/js/index.js') }}"></script>
+	  <script src="{{  asset('adminbackend/assets/js/index.js') }}"></script>
+	  <script src="{{  asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
+
 	<!--app JS-->
-	<script src="{{  asset('admindashboard/assets/js/app.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/js/app.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{  asset('adminbackend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
+	</script>
+	<script>
+		@if(Session::has('message'))
+		toastr.options =
+		{
+		  "closeButton" : true,
+		  "progressBar" : true
+		}
+			  toastr.success("{{ session('message') }}");
+		@endif
+	  
+		@if(Session::has('error'))
+		toastr.options =
+		{
+		  "closeButton" : true,
+		  "progressBar" : true
+		}
+			  toastr.error("{{ session('error') }}");
+		@endif
+	  
+		@if(Session::has('info'))
+		toastr.options =
+		{
+		  "closeButton" : true,
+		  "progressBar" : true
+		}
+			  toastr.info("{{ session('info') }}");
+		@endif
+	  
+		@if(Session::has('warning'))
+		toastr.options =
+		{
+		  "closeButton" : true,
+		  "progressBar" : true
+		}
+			  toastr.warning("{{ session('warning') }}");
+		@endif
+	</script>
+	<script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+	</script>
+	<script>
+		tinymce.init({
+		  selector: '#mytextarea'
+		});
+	</script>
+
 </body>
 
 </html>

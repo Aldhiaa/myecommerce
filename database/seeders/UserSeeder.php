@@ -23,7 +23,14 @@ class UserSeeder extends Seeder
                 'status' => 'active',
             ],
             // vender
-           
+            [
+                'name' => 'dhiaa',
+                'username' => 'dhiaa',
+                'email' => 'dhiaa@gmail.com',
+                'password' => hash::make('111'),
+                'role' => 'vendor',
+                'status' => 'active',
+            ],
          // user
             [
                 'name' => 'zaid askar',
