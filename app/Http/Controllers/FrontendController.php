@@ -10,7 +10,7 @@ use App\Models\Banner;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\SiteSetting;
-use App\Models\Seo;
+use App\Models\seo;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -26,7 +26,7 @@ class FrontendController extends Controller
         $vendors=User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->limit(6)->get();
         $banners = Banner::orderBy('banner_title','ASC')->limit(3)->get();
         $setting = SiteSetting::find(1);
-        $seo = Seo::find(1);
+        $seo = seo::find(1);
         return view('frontend.index',compact('categories','sliders','products','featuredproducts','vendors','banners','setting','seo','hot_dealsproducts','specail_offerproducts','specail_dealsproducts'));
     }
     public function productdetails($id,$slug){
