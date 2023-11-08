@@ -16,7 +16,7 @@ class SiteSettingController extends Controller
             // If no record exists, create a new one
             $setting = new SiteSetting();
         }
-        return view('backend.setting.setting_update',compact('setting'));
+        return view('Backend.setting.setting_update',compact('setting'));
 
     } // End Method 
 
@@ -103,7 +103,7 @@ public function SiteSettingUpdate(Request $request){
             // If no record exists, create a new one
             $seo = new Seo();
         }
-        return view('backend.seo.seo_update',compact('seo'));
+        return view('Backend.seo.seo_update',compact('seo'));
 
     } // End Method 
 
