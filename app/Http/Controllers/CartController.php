@@ -20,6 +20,7 @@ class CartController extends Controller
         }
 
         $product = Product::findOrFail($id);
+        dd($product);
         if ($product->selling_price == NULL) {
             Cart::add([
                 'id' => $id,

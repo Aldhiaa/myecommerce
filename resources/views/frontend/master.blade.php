@@ -155,14 +155,10 @@
 
    function addproductToCart(product_id, pvendor_id) {
         var id = product_id;
-        var vendor_id = pvendor_id;
-            var product_name = $('#pname').text();  
-            
+        var vendor_id = pvendor_id;            
             console.log(id);
-            var color = $('#color option:selected').text();
-            var size = $('#size option:selected').text();
             console.log(vendor_id);
-            var quantity = $('#qty').val(); 
+           
             $.ajax({
                type: "POST",
                dataType : 'json',
