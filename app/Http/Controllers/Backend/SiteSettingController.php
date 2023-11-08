@@ -25,17 +25,19 @@ public function SiteSettingUpdate(Request $request){
 
         $setting_id = $request->id; 
         $sitesetting = SiteSetting::find($setting_id);
-        $oldlogo =$sitesetting->logo;
+        if ($sitesetting) {
+            $oldlogo =$sitesetting->logo;
+            if (file_exists($oldlogo)) {
+                unlink($oldlogo);
+             }  
+        }     
         if ($request->file('logo')) {
         $image = $request->file('logo');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->resize(180,56)->save('upload/logo/'.$name_gen);
         $save_url = 'upload/logo/'.$name_gen;
-        if (file_exists($oldlogo)) {
-            unlink($oldlogo);
-         }
          $data = [
-            'ecommerce_name' => $request->ecommerce_name,
+            'title' => $request->ecommerce_name,
             'support_phone' => $request->support_phone,
             'phone_one' => $request->phone_one,
             'email' => $request->email,

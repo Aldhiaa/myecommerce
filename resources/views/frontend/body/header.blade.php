@@ -331,13 +331,12 @@
 </script>
 
 
-
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
                 <a href="{{ route('/') }}"><img src="{{ asset(optional($setting)->logo) }}" alt="logo" /></a>
-            </div>
+           </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
                     <i class="icon-top"></i>
@@ -356,20 +355,29 @@
                 <!-- mobile menu start -->
                 <nav>
                     <ul class="mobile-menu font-heading">
-                        <li class="menu-item-has-children">
-                            <a href="index.html">Home</a>
+                        <li class="menu-item-has-children"><a href="{{ route('/') }}">Home</a>
                              
                         </li>
                         @foreach ($categories as $cat)
-                        <li>
-                            <a href="{{ url('product/category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }} <i class="fi-rs-angle-down"></i></a>
-                            <ul class="sub-menu">
+                        <li class="menu-item-has-children"><a href="{{ url('product/category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }} </a>
+                            <ul class="dropdown">
                                 @foreach ($cat->subcategories as $subcategory)
-                                    <li><a href="{{ url('product/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">{{ $subcategory->subcategory_name }}</a></li>
+                                <li class="menu-item-has-children"><a href="{{ url('product/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">{{ $subcategory->subcategory_name }}</a>
+                                </li>
                                 @endforeach
                             </ul>
                         </li>
                         @endforeach
+                        
+                        <li class="menu-item-has-children">
+                            <a href="#">Language</a>
+                            <ul class="dropdown">
+                                <li><a href="#">English</a></li>
+                            </ul>
+                        </li>
+                        <div class="menu-item-has-children">
+                            <a href="{{ route('login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                        </div>
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
@@ -387,11 +395,11 @@
             </div>
             <div class="mobile-social-icon mb-50">
                 <h6 class="mb-15">Follow Us</h6>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
+                <a href="#"><img src="assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
+                <a href="#"><img src="assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
+                <a href="#"><img src="assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
+                <a href="#"><img src="assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
             </div>
             <div class="site-copyright">Copyright 2022 © Nest. All rights reserved. Powered by AliThemes.</div>
         </div>
