@@ -13,7 +13,7 @@ class BannerController extends Controller
         return view('Backend.banner.allbanner',compact('allbanners'));
     } 
     public function AddBanner(){
-        return view('backend.banner.banner_add');
+        return view('Backend.banner.banner_add');
 }// End Method 
 
  public function StoreBanner(Request $request){
