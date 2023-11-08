@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteSetting;
-use App\Models\Seo;
+use App\Models\seo;
 use Image;
 class SiteSettingController extends Controller
 {
@@ -98,7 +98,7 @@ public function SiteSettingUpdate(Request $request){
 
     public function SeoSetting(){
 
-        $seo = Seo::find(1);
+        $seo = seo::find(1);
         if (!$seo) {
             // If no record exists, create a new one
             $seo = new Seo();
