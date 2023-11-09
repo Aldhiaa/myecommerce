@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -333,6 +334,17 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/admin/user/update/{id}' , 'AdminUserUpdate')->name('admin.user.update');
     Route::get('/delete/admin/role/{id}' , 'DeleteAdminRole')->name('delete.admin.role');
    });
+
+   Route::controller(ReportController::class)->group(function(){
+
+    Route::get('/report/view' , 'ReportView')->name('report.view');
+    Route::post('/search/by/date' , 'SearchByDate')->name('search-by-date');
+    Route::post('/search/by/month' , 'SearchByMonth')->name('search-by-month');
+    Route::post('/search/by/year' , 'SearchByYear')->name('search-by-year');
+
+
+
+});
 
 });
 

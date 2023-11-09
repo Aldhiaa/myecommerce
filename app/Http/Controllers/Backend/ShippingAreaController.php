@@ -11,11 +11,11 @@ class ShippingAreaController extends Controller
 {
     public function AllDivision(){
         $division = ShipDivision::latest()->get();
-        return view('backend.ship.division.division_all',compact('division'));
+        return view('Backend.ship.division.division_all',compact('division'));
     } // End Method 
 
     public function AddDivision(){
-        return view('backend.ship.division.division_add');
+        return view('Backend.ship.division.division_add');
     }// End Method 
 
 
@@ -47,7 +47,7 @@ class ShippingAreaController extends Controller
     public function EditDivision($id){
 
         $division = ShipDivision::findOrFail($id);
-        return view('backend.ship.division.division_edit',compact('division'));
+        return view('Backend.ship.division.division_edit',compact('division'));
 
     }// End Method 
 
@@ -101,12 +101,12 @@ class ShippingAreaController extends Controller
 
     public function AllDistrict(){
         $district = ShipDistrict::latest()->get();
-        return view('backend.ship.district.district_all',compact('district'));
+        return view('Backend.ship.district.district_all',compact('district'));
     } // End Method 
 
     public function AddDistrict(){
         $division = ShipDivision::orderBy('division_name','ASC')->get();
-        return view('backend.ship.district.district_add',compact('division'));
+        return view('Backend.ship.district.district_add',compact('division'));
     }// End Method 
 
 
@@ -138,7 +138,7 @@ public function StoreDistrict(Request $request){
     public function EditDistrict($id){
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         $district = ShipDistrict::findOrFail($id);
-        return view('backend.ship.district.district_edit',compact('district','division'));
+        return view('Backend.ship.district.district_edit',compact('district','division'));
 
     }// End Method 
 
@@ -191,14 +191,14 @@ $rules = [
 
      public function AllState(){
         $state = ShipState::latest()->get();
-        return view('backend.ship.state.state_all',compact('state'));
+        return view('Backend.ship.state.state_all',compact('state'));
     } // End Method 
 
 
     public function AddState(){
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         $district = ShipDistrict::orderBy('district_name','ASC')->get();
-         return view('backend.ship.state.state_add',compact('division','district'));
+         return view('Backend.ship.state.state_add',compact('division','district'));
     }// End Method 
 
 
@@ -238,7 +238,7 @@ $rules = [
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         $district = ShipDistrict::orderBy('district_name','ASC')->get();
         $state = ShipState::findOrFail($id);
-         return view('backend.ship.state.state_edit',compact('division','district','state'));
+         return view('Backend.ship.state.state_edit',compact('division','district','state'));
     }// End Method 
 
 
