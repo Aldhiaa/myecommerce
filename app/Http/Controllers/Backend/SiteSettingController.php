@@ -23,76 +23,47 @@ class SiteSettingController extends Controller
 
 public function SiteSettingUpdate(Request $request){
 
-        $setting_id = $request->id; 
-        $sitesetting = SiteSetting::find($setting_id);
-        if ($sitesetting) {
-            $oldlogo =$sitesetting->logo;
-            if (file_exists($oldlogo)) {
-                unlink($oldlogo);
-             }  
-        }     
-        if ($request->file('logo')) {
-        $image = $request->file('logo');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(180,56)->save('upload/logo/'.$name_gen);
-        $save_url = 'upload/logo/'.$name_gen;
-         $data = [
-            'title' => $request->ecommerce_name,
-            'support_phone' => $request->support_phone,
-            'phone_one' => $request->phone_one,
-            'email' => $request->email,
-            'company_address' => $request->company_address,
-            'facebook' => $request->facebook,
-            'twitter' => $request->twitter,
-            'youtube' => $request->youtube,
-            'copyright' => $request->copyright, 
-            'logo' => $save_url, 
-        ];
-        if ($setting_id) {
-            SiteSetting::findOrFail($setting_id)->update([
-                $data
-            ]); 
-        }else {           
-            SiteSetting::create($data);
+    $setting_id = $request->id;
+    $sitesetting = SiteSetting::find($setting_id);
+    
+    if ($sitesetting) {
+        $oldlogo = $sitesetting->logo;
+        if (file_exists($oldlogo)) {
+            unlink($oldlogo);
         }
-       
+    }
+    
+    $data = [
+        'title' => $request->ecommerce_name,
+        'support_phone' => $request->support_phone,
+        'phone_one' => $request->phone_one,
+        'email' => $request->email,
+        'company_address' => $request->company_address,
+        'facebook' => $request->facebook,
+        'twitter' => $request->twitter,
+        'youtube' => $request->youtube,
+        'copyright' => $request->copyright,
+    ];
 
-       $notification = array(
-            'message' => 'Site Setting Updated with image Successfully',
-            'alert-type' => 'success'
-        );
+    if ($request->file('logo')) {
+        $image = $request->file('logo');
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(180, 56)->save('upload/logo/' . $name_gen);
+        $data['logo'] = 'upload/logo/' . $name_gen;
+    }
 
-        return redirect()->back()->with($notification); 
+    if ($setting_id) {
+        $sitesetting->update($data);
+    } else {
+        SiteSetting::create($data);
+    }
 
-        } else {
-            $data = [
-                'ecommerce_name' => $request->ecommerce_name,
-                'support_phone' => $request->support_phone,
-                'phone_one' => $request->phone_one,
-                'email' => $request->email,
-                'company_address' => $request->company_address,
-                'facebook' => $request->facebook,
-                'twitter' => $request->twitter,
-                'youtube' => $request->youtube,
-                'copyright' => $request->copyright,                
-            ];
-            if ($setting_id) {
-                SiteSetting::findOrFail($setting_id)->update([
-                    $data
-                ]); 
-            }else {           
-                SiteSetting::create($data);
-            }
-            
+    $notification = array(
+        'message' => $request->file('logo') ? 'Site Setting Updated with image Successfully' : 'Site Setting Updated without image Successfully',
+        'alert-type' => 'success'
+    );
 
-       $notification = array(
-            'message' => 'Site Setting Updated without image Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->back()->with($notification); 
-
-        } // end else
+    return redirect()->back()->with($notification);
 
     }// End Method 
 

@@ -33,7 +33,7 @@
 										<h6 class="mb-0">Ecommerce name</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input type="text" class="form-control" name="ecommerce_name" value="{{ $setting->support_phone }}" />
+										<input type="text" class="form-control" name="ecommerce_name" value="{{ $setting->title }}" />
 									</div>
 								</div>
 								<div class="row mb-3">
