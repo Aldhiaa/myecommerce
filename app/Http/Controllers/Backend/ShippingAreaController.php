@@ -253,7 +253,7 @@ $rules = [
                 'state_name.required' => 'state title is required.',             
             ];
             $request->validate($rules, $messages);
-        $state_id = $request->id;
+            $state_id = $request->id;
 
          ShipState::findOrFail($state_id)->update([
             'division_id' => $request->division_id, 

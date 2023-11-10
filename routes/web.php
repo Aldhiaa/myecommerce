@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CashpayController;
+use App\Http\Controllers\CashONDeliveryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -86,6 +87,10 @@ Route::controller(StripeController::class)->group(function(){
 });
 Route::controller(CashpayController::class)->group(function(){
     Route::post('/cash/order' , 'cashOrder')->name('cash.order');
+
+});
+Route::controller(CashONDeliveryController::class)->group(function(){
+    Route::post('/cash/on/delivery/order' , 'cashOrder')->name('cash.on.delivery.order');
 
 });
 
