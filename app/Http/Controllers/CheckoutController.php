@@ -70,7 +70,7 @@ class CheckoutController extends Controller
         }elseif ($request->payment_option == 'card'){
             return view('frontend.payment.cashpay',compact('cartTotal','categories','data','setting'));
         }else{
-            return view('frontend.payment.cash',compact('cartTotal'));
+            return view('frontend.payment.cash',compact('cartTotal','categories','data','setting'));
         }
 
 

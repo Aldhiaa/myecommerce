@@ -220,7 +220,7 @@
                         <div class="custome-radio">
                             <input class="form-check-input" value="card"  type="radio" name="payment_option" id="exampleRadios5" checked="">
             
-                            <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Online Getway</label>
+                            <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Cashpay</label>
                         </div>
                     </div>
                     <div class="payment-logo d-flex">
