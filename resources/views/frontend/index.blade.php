@@ -40,7 +40,7 @@
                             </figure>
                             <div class="col-md-8 mb-0">
                                 <h6>
-                                    <a href="shop-product-right.html">{{ $item->product_name }}</a>
+                                    <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                                 </h6>
                                 {{-- <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
@@ -73,7 +73,7 @@
                             </figure>
                             <div class="col-md-8 mb-0">
                                 <h6>
-                                    <a href="shop-product-right.html">{{ $item->product_name }}</a>
+                                    <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                                 </h6>
                                 {{-- <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
@@ -107,7 +107,7 @@
                             </figure>
                             <div class="col-md-8 mb-0">
                                 <h6>
-                                    <a href="shop-product-right.html">{{ $item->product_name }}</a>
+                                    <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                                 </h6>
                                 {{-- <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
@@ -142,7 +142,7 @@
                             </figure>
                             <div class="col-md-8 mb-0">
                                 <h6>
-                                    <a href="shop-product-right.html">{{ $item->product_name }}</a>
+                                    <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                                 </h6>
                                 {{-- <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">

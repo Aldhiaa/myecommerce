@@ -154,8 +154,8 @@
 <script type="text/javascript">
 
    function addproductToCart(product_id, pvendor_id) {
-        var id = product_id;
-        var vendor_id = pvendor_id;            
+            var id = product_id;
+            var vendor_id = pvendor_id;            
             console.log(id);
             console.log(vendor_id);
            
@@ -169,7 +169,6 @@
                url: "/cart/product/store/"+id,
                success:function(data){
                 miniCart();
-                $('#closeModal').click();
                    console.log(data);
                    // Start Message 
                    const Toast = Swal.mixin({

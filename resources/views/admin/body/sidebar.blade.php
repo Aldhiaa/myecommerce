@@ -197,8 +197,17 @@
                 </li>
                 <li> <a href="{{ route('order.by.user') }}"><i class="bx bx-right-arrow-alt"></i>Order By User</a>
                 </li>
-
-
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-line-chart"></i>
+                </div>
+                <div class="menu-title">Notifications </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('ceate.notification') }}"><i class="bx bx-right-arrow-alt"></i>make a Notification<</a>
+                </li>
             </ul>
         </li>
         

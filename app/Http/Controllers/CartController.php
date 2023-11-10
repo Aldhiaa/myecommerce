@@ -18,9 +18,8 @@ class CartController extends Controller
         if(Session::has('coupon')){
             Session::forget('coupon');
         }
-
+        dd($request);
         $product = Product::findOrFail($id);
-        dd($product);
         if ($product->selling_price == NULL) {
             Cart::add([
                 'id' => $id,
@@ -30,8 +29,6 @@ class CartController extends Controller
                 'weight' => 1,
                 'options' => [
                     'image' => $product->product_thambnail,
-                    'color' => $request->color,
-                    'size' => $request->size,
                     'vendor_id' => $request->vendor_id,
                 ]
 
@@ -48,8 +45,6 @@ class CartController extends Controller
                 'weight' => 1,
                 'options' => [
                     'image' => $product->product_thambnail,
-                    'color' => $request->color,
-                    'size' => $request->size,
                     'vendor_id' => $request->vendor_id,
                 ],
             ]);
