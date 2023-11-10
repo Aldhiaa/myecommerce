@@ -42,9 +42,9 @@ class StripeController extends Controller
         
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
-            // 'division_id' => $request->division_id,
-            // 'district_id' => $request->district_id,
-            // 'state_id' => $request->state_id,
+            'division_id' => $request->division_id,
+            'district_id' => $request->district_id,
+            'state_id' => $request->state_id,
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,

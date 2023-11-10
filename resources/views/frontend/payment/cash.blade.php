@@ -83,23 +83,13 @@
             <div class="col-lg-6">
                 <div class="border p-40 cart-totals ml-30 mb-50">
                     <div class="d-flex align-items-end justify-content-between mb-30">
-                        <h4>Make Payment</h4>
+                        <h4>Pay on delivery</h4>
                     </div>
                     <div class="divider-2 mb-30"></div>
                     <div class="table-responsive order_table checkout">
-                        <form action="{{ route('stripe.order') }}" method="post" id="payment-form">
+                        <form action="{{ route('cash.on.delivery.order') }}" method="post" id="payment-form">
                             @csrf
-                            <div class="form-row">
-                                <label for="card-element">
-                                    Credit or debit card
-                                </label>
-                                <div id="card-element">
-                                    <!-- A Stripe Element will be inserted here. -->
-                                </div>
-                                <!-- Used to display form errors. -->
-                                <div id="card-errors" role="alert"></div>
-                            </div>
-                            <br>
+
                             <button class="btn btn-primary">Submit Payment</button>
                         </form>
                     </div>

@@ -90,7 +90,7 @@ Route::controller(CashpayController::class)->group(function(){
 
 });
 Route::controller(CashONDeliveryController::class)->group(function(){
-    Route::post('/cash/on/delivery/order' , 'cashOrder')->name('cash.on.delivery.order');
+    Route::post('/cash/on/delivery/order' , 'cashONDELOrder')->name('cash.on.delivery.order');
 
 });
 
