@@ -121,6 +121,7 @@ public function StoreDistrict(Request $request){
             'distric_name.required' => 'distric title is required.',             
         ];
         $request->validate($rules, $messages);
+        
     ShipDistrict::insert([ 
             'division_id' => $request->division_id, 
             'district_name' => $request->district_name,

@@ -22,34 +22,23 @@ class CashONDeliveryController extends Controller
             $total_amount = round(Cart::total());
         }
 
-        $charge = Charge::create([
-          'amount' => $total_amount*100,
-          'currency' => 'usd',
-          'description' => 'Easy Mulit Vendor Shop',
-          'source' => $token,
-          'metadata' => ['order_id' => uniqid()]
-        ]);
-
-         dd($charge);
-        
-        
+        $order_number =  uniqid();
+        $data = Session::get('checkout_data');     
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
-            'division_id' => $request->division_id,
-            'district_id' => $request->district_id,
-            'state_id' => $request->state_id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'adress' => $request->address,
-            'post_code' => $request->post_code,
-            'notes' => $request->notes,
+            'division_id' => $data['division_id'],
+            'district_id' => $data['district_id'],
+            'state_id' => $data['state_id'],
+            'name' => $data['shipping_name'], 
+            'email' => $data['shipping_email'],
+            'phone' => $data['shipping_phone'],
+            'adress' => $data['shipping_address'],
+            'post_code' => $data['post_code'],
+            'notes' => $data['notes'],
             'payment_type' =>'pay on delivery',
             'payment_method' => 'pay on delivery',
-            'transaction_id' => $charge->balance_transaction,
-            'currency' => $charge->currency,
             'amount' => $total_amount,
-            'order_number' => $charge->metadata->order_id,
+            'order_number' => $order_number,
 
             'invoice_no' => 'EOS'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
@@ -94,7 +83,9 @@ class CashONDeliveryController extends Controller
         if (Session::has('coupon')) {
            Session::forget('coupon');
         }
-
+        if (Session::has('checkout_data')) {
+           Session::forget('checkout_data');
+        }
         Cart::destroy();
 
         $notification = array(

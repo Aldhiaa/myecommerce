@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\AdminNotificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -174,6 +175,10 @@ Route::middleware(['auth','role:vendor'])->group(function(){
     
     
     });
+    Route::controller(AdminNotificationController::class)->group(function(){
+        Route::put('/mark-all-notifications-as-read','markAllAsRead')->name('markAllNotificationsAsRead');  
+    });
+
 });
 Route::middleware(['auth','role:admin'])->group(function(){
 
@@ -347,8 +352,13 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/search/by/month' , 'SearchByMonth')->name('search-by-month');
     Route::post('/search/by/year' , 'SearchByYear')->name('search-by-year');
 
+    Route::get('/order/by/user' , 'OrderByUser')->name('order.by.user');
+    Route::post('/search/by/user' , 'SearchByUser')->name('search-by-user');
+});
+   Route::controller(AdminNotificationController::class)->group(function(){
 
-
+    Route::get('/ceate/notification' , 'createnotifi')->name('ceate.notification');
+    Route::post('/store/notification' , 'sendMessage')->name('store.notification');
 });
 
 });

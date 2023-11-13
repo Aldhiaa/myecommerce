@@ -64,7 +64,7 @@ class CheckoutController extends Controller
         $data['shipping_address'] = $request->shipping_address;
         $data['notes'] = $request->notes; 
         $cartTotal = Cart::total();
-
+        Session::put('checkout_data', $data);
         if ($request->payment_option == 'stripe') {
            return view('frontend.payment.stripe',compact('cartTotal','categories','data','setting'));
         }elseif ($request->payment_option == 'card'){

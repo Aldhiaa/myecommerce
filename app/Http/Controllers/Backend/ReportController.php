@@ -54,4 +54,5 @@ class ReportController extends Controller
         $orders = Order::where('user_id',$users)->latest()->get();
         return view('Backend.report.report_by_user_show',compact('orders','users'));
     }// End Method 
+    
 }

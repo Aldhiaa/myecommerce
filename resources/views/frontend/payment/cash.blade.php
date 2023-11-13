@@ -89,8 +89,11 @@
                     <div class="table-responsive order_table checkout">
                         <form action="{{ route('cash.on.delivery.order') }}" method="post" id="payment-form">
                             @csrf
-
-                            <button class="btn btn-primary">Submit Payment</button>
+                            <div class="form-row">
+                             <h4>i will pay when i recieve the order</h4>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary">Send a request</button>
                         </form>
                     </div>
                 </div>

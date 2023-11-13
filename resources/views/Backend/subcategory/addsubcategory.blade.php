@@ -59,13 +59,4 @@
         </div>
     </div>
 </div>
-<script>
-    function openFileDialog() {
-      document.getElementById('photo-input').click();
-    }
-
-    function submitForm() {
-      document.getElementById('photo-form').submit();
-    }
-</script>
 @endsection

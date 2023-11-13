@@ -39,18 +39,18 @@ class StripeController extends Controller
 
          dd($charge);
         
-        
+         $data = Session::get('checkout_data');
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
-            'division_id' => $request->division_id,
-            'district_id' => $request->district_id,
-            'state_id' => $request->state_id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'adress' => $request->address,
-            'post_code' => $request->post_code,
-            'notes' => $request->notes,
+            'division_id' => $data['division_id'],
+            'district_id' => $data['district_id'],
+            'state_id' => $data['state_id'],
+            'name' => $data['shipping_name'],
+            'email' => $data['shipping_email'],
+            'phone' => $data['shipping_phone'],
+            'adress' => $data['shipping_address'],
+            'post_code' => $data['post_code'],
+            'notes' => $data['notes'],
 
             'payment_type' => $charge->payment_method,
             'payment_method' => 'Stripe',
@@ -103,7 +103,9 @@ class StripeController extends Controller
         if (Session::has('coupon')) {
            Session::forget('coupon');
         }
-
+        if (Session::has('checkout_data')) {
+            Session::forget('checkout_data');
+         }
         Cart::destroy();
 
         $notification = array(
