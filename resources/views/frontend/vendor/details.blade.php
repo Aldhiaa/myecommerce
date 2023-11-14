@@ -101,15 +101,15 @@
                             </div>
                             <div class="product-content-wrap">
                                 <div class="product-category">
-                                    <a href="shop-grid-right.html">{{ $product->category->category_name }}</a>
+                                    <a href="{{ url('product/category/'.$product->category->id.'/'.$product->category->category_slug) }}">{{ $product->category->category_name }}</a>
                                 </div>
                                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></h2>
-                                <div class="product-rate-cover">
+                                {{-- <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 90%"></div>
                                     </div>
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                </div>
+                                </div> --}}
                                 <div>
                                     <span class="font-small text-muted">By <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
                                 </div>
@@ -172,12 +172,12 @@
                         <span class="text-muted">Since {{ $vendor->vendor_join }}</span>
                     </div>
                     <h4 class="mb-5"><a href="vendor-details-1.html" class="text-heading">{{ $vendor->name }}</a></h4>
-                    <div class="product-rate-cover mb-15">
+                    {{-- <div class="product-rate-cover mb-15">
                         <div class="product-rate d-inline-block">
                             <div class="product-rating" style="width: 90%"></div>
                         </div>
                         <span class="font-small ml-5 text-muted"> (4.0)</span>
-                    </div>
+                    </div> --}}
                     <div class="vendor-des mb-30">
                         <p class="font-sm text-heading">{{ $vendor->vendor_info }}</p>
                     </div>

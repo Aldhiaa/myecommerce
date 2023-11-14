@@ -12,9 +12,9 @@
                 @foreach ($categories as $item)
                 <div class="card-2 bg-9 wow animate__ animate__fadeInUp slick-slide slick-current slick-active" data-wow-delay=".1s" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 72px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html" tabindex="0"><img src="{{ asset($item->category_image) }}" alt=""></a>
+                        <a href="{{ url('product/category/'.$item['id'].'/'.$item['category_slug']) }}" tabindex="0"><img src="{{ asset($item->category_image) }}" alt=""></a>
                     </figure>
-                    <h6><a href="shop-grid-right.html" tabindex="0">{{ $item->category_name }}</a></h6>
+                    <h6><a href="{{ url('product/category/'.$item['id'].'/'.$item['category_slug']) }}" tabindex="0">{{ $item->category_name }}</a></h6>
                     <span>{{  $item->products->count()  }} items</span>
                 </div> 
                 @endforeach

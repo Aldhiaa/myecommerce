@@ -13,12 +13,12 @@ class RoleController extends Controller
     public function AllPermission(){
 
         $permissions = Permission::all();
-        return view('backend.pages.permission.all_permission',compact('permissions'));
+        return view('Backend.pages.permission.all_permission',compact('permissions'));
 
     } // End Method
     
     public function AddPermission(){
-        return view('backend.pages.permission.add_permission');
+        return view('Backend.pages.permission.add_permission');
     }// End Method 
 
 
@@ -42,7 +42,7 @@ class RoleController extends Controller
     public function EditPermission($id){
 
         $permission = Permission::findOrFail($id);
-        return view('backend.pages.permission.edit_permission',compact('permission'));
+        return view('Backend.pages.permission.edit_permission',compact('permission'));
  
      }// End Method 
  
@@ -88,14 +88,14 @@ class RoleController extends Controller
    public function AllRoles(){
 
     $roles = Role::all();
-    return view('backend.pages.roles.all_roles',compact('roles'));
+    return view('Backend.pages.roles.all_roles',compact('roles'));
 
 } // End Method 
 
 
 
 public function AddRoles(){
-    return view('backend.pages.roles.add_roles');
+    return view('Backend.pages.roles.add_roles');
 }// End Method 
 
 
@@ -118,7 +118,7 @@ public function StoreRoles(Request $request){
 
 public function EditRoles($id){
     $roles = Role::findOrFail($id);
-    return view('backend.pages.roles.edit_roles',compact('roles'));
+    return view('Backend.pages.roles.edit_roles',compact('roles'));
 }// End Method 
 
 
@@ -159,7 +159,7 @@ public function AddRolesPermission(){
     $roles = Role::all();
     $permissions = Permission::all();
     $permission_groups = User::getpermissionGroups();
-    return view('backend.pages.roles.add_roles_permission',compact('roles','permissions','permission_groups'));
+    return view('Backend.pages.roles.add_roles_permission',compact('roles','permissions','permission_groups'));
 }// End Method 
 public function RolePermissionStore(Request $request){
 
@@ -184,7 +184,7 @@ public function RolePermissionStore(Request $request){
 public function AllRolesPermission(){
 
     $roles = Role::all();
-    return view('backend.pages.roles.all_roles_permission',compact('roles'));
+    return view('Backend.pages.roles.all_roles_permission',compact('roles'));
 
 } // End Method 
 
@@ -195,7 +195,7 @@ public function AdminRolesEdit($id){
     $role = Role::findOrFail($id);
     $permissions = Permission::all();
     $permission_groups = User::getpermissionGroups();
-    return view('backend.pages.roles.role_permission_edit',compact('role','permissions','permission_groups'));
+    return view('Backend.pages.roles.role_permission_edit',compact('role','permissions','permission_groups'));
 } // End Method 
 public function AdminRolesUpdate(Request $request,$id){
     $role = Role::findOrFail($id);

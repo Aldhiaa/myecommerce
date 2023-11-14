@@ -57,7 +57,7 @@ class BannerController extends Controller
 }
 public function EditBanner($id){
     $banner = Banner::findOrFail($id);
-    return view('backend.banner.banner_edit',compact('banner'));
+    return view('Backend.banner.banner_edit',compact('banner'));
 }// End Method 
 
 

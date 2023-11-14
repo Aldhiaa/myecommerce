@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html">{{ $product->category->category_name }}</a>
+                                            <a href="{{ url('product/category/'.$product->category->id.'/'.$product->category->category_slug) }}">{{ $product->category->category_name }}</a>
                                         </div>
                                         <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></h2>
                                         {{-- <div class="product-rate-cover">
@@ -204,9 +204,9 @@
                             <div class="content pt-10">
                                 <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></p>
                                 <p class="price mb-0 mt-5">{{ $product->selling_price }}</p>
-                                <div class="product-rate">
+                                {{-- <div class="product-rate">
                                     <div class="product-rating" style="width: 90%"></div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>  
                         @endforeach

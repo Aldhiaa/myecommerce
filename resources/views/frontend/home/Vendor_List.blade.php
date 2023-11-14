@@ -32,7 +32,7 @@
                                     <h4 class="mb-5"><a href="{{ route('front.vendor.details',$vendor->id) }}">{{ $vendor->name }}</a></h4>
                                     <div class="product-rate-cover">
                                        
-                                       <span class="font-small total-product">380 products</span>
+                                       <span class="font-small total-product">{{$vendor->product->count() }} products</span>
                                     </div>
                                 </div>
                                 

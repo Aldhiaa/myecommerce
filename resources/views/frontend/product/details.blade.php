@@ -11,7 +11,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> <a href="shop-grid-right.html">{{ $product->category->category_name }}</a><span></span><a href="shop-grid-right.html">{{ $product->subcategory->subcategory_name }}</a> <span></span> {{ $product->product_name }}
+                <span></span> <a href="{{ url('product/category/'.$product->category->id.'/'.$product->category->category_slug) }}">{{ $product->category->category_name }}</a><span></span><a href="shop-grid-right.html">{{ $product->subcategory->subcategory_name }}</a> <span></span> {{ $product->product_name }}
             </div>
         </div>
     </div>
@@ -49,14 +49,14 @@
                                 <span class="stock-status out-stock"> Sale Off </span>
                                 @endif
                                 <h2 class="title-detail" id="pname">{{ $product->product_name }}</h2>
-                                <div class="product-detail-rating">
+                                {{-- <div class="product-detail-rating">
                                     <div class="product-rate-cover text-end">
                                         <div class="product-rate d-inline-block">
                                             <div class="product-rating" style="width: 90%"></div>
                                         </div>
                                         <span class="font-small ml-5 text-muted"> (32 reviews)</span>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="clearfix product-price-cover">
                                     <div class="product-price primary-color float-left">
                                         @if ($product->discount_price == NULL)
@@ -272,12 +272,12 @@
                                             <h6>
                                                 <a href="vendor-details-2.html">{{ $product->vendor->name }}</a>
                                             </h6>
-                                            <div class="product-rate-cover text-end">
+                                            {{-- <div class="product-rate-cover text-end">
                                                 <div class="product-rate d-inline-block">
                                                     <div class="product-rating" style="width: 90%"></div>
                                                 </div>
                                                 <span class="font-small ml-5 text-muted"> (32 reviews)</span>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <ul class="contact-infor mb-50">
@@ -288,7 +288,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="Reviews">
                                     <!--Comments-->
-                                    <div class="comments-area">
+                                    {{-- <div class="comments-area">
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <h4 class="mb-30">Customer questions & answers</h4>
@@ -352,7 +352,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4">
+                                            {{-- <div class="col-lg-4">
                                                 <h4 class="mb-30">Customer reviews</h4>
                                                 <div class="d-flex mb-30">
                                                     <div class="product-rate d-inline-block mr-15">
@@ -381,9 +381,9 @@
                                                     <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
                                                 </div>
                                                 <a href="#" class="font-xs text-muted">How are ratings calculated?</a>
-                                            </div>
+                                            </div> --}}
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <!--comment form-->
                                     <div class="comment-form">
                                         <h4 class="mb-15">Add a review</h4>
@@ -465,15 +465,15 @@
                                             </div>
                                             <div class="product-content-wrap">
                                                 <div class="product-category">
-                                                    <a href="shop-grid-right.html">{{ $product->category->category_name }}</a>
+                                                    <a href="{{ url('product/category/'.$product->category->id.'/'.$product->category->category_slug) }}">{{ $product->category->category_name }}</a>
                                                 </div>
                                                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></h2>
-                                                <div class="product-rate-cover">
+                                                {{-- <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
                                                     </div>
                                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                                </div>
+                                                </div> --}}
                                                 <div>
                                                     <span class="font-small text-muted">By <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
                                                 </div>

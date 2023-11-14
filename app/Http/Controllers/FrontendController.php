@@ -45,16 +45,18 @@ class FrontendController extends Controller
         return view('frontend.product.details',compact('product','categories','product_color','product_size','multimage','relatedproduct','setting'));
     }
     public function FrontVendordetails($id){
+        $setting = SiteSetting::find(1);
         $vendor=User::findOrFail($id);
         $VendProduct=Product::where('vendor_id',$id)->get();
         $categories =Category::orderBy('category_name','ASC')->get();
 
-        return view('frontend.vendor.details',compact('VendProduct','categories','vendor'));
+        return view('frontend.vendor.details',compact('VendProduct','categories','vendor','setting'));
     }
     public function VendorAll(){
+        $setting = SiteSetting::find(1);
         $vendors=User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->limit(6)->get();
         $categories =Category::orderBy('category_name','ASC')->get();
-        return view('frontend.vendor.vendor_all',compact('vendors','categories'));
+        return view('frontend.vendor.vendor_all',compact('vendors','categories','setting'));
     }
     public function CatWiseProduct(Request $request,$id,$slug){
         $setting = SiteSetting::find(1);

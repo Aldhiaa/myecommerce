@@ -64,4 +64,9 @@ class User extends Authenticatable
         } 
 
     }// End Method 
+
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'vendor_id');
+    }
 }

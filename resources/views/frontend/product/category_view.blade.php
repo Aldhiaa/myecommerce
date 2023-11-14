@@ -205,9 +205,9 @@
                             <div class="content pt-10">
                                 <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></p>
                                 <p class="price mb-0 mt-5">{{ $product->selling_price }}</p>
-                                <div class="product-rate">
+                                {{-- <div class="product-rate">
                                     <div class="product-rating" style="width: 90%"></div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>  
                         @endforeach
