@@ -36,9 +36,16 @@
                         <div class="row">
                             <div class="form-group col-lg-6">
                                 <input type="text"  name="shipping_name" value="{{ Auth::user()->name }}">
+                                @error('shipping_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror 
                             </div>
+
                             <div class="form-group col-lg-6">
                                 <input type="email"  name="shipping_email" value="{{ Auth::user()->email }}">
+                                @error('shipping_email')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror 
                             </div>
                         </div>
 
@@ -52,8 +59,10 @@
                                         @foreach($divisions as $item)
                                         <option value="{{ $item->id }}">{{ $item->division_name }}</option>
                                         @endforeach
-                    
                                     </select>
+                                    @error('division_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror 
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
@@ -69,6 +78,9 @@
 
 
                                     </select>
+                                    @error('district_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror 
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
@@ -88,7 +100,6 @@
                             </div>
                             <div class="form-group col-lg-6">
                                 <input  type="text" name="shipping_address" placeholder="Address *" value="{{ Auth::user()->address }}">
-                                {{-- <button class="btn " onclick="getUserLocation()">Get My Location</button> --}}
                                 <input type="hidden" name="latitude" id="latitude">
                                 <input type="hidden" name="longitude" id="longitude">
                             </div>
@@ -284,21 +295,42 @@
 
     
     <script>
+document.addEventListener("DOMContentLoaded", function () {
+    getUserLocation();
+
     function getUserLocation() {
-        event.preventDefault();
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition, handleGeolocationError, { timeout: 10000 });
         } else {
             alert("Geolocation is not supported by this browser.");
         }
     }
-    
+
     function showPosition(position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         $('#latitude').val(latitude);
         $('#longitude').val(longitude);
     }
+
+    function handleGeolocationError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+});
+
     </script>
     
 </main>

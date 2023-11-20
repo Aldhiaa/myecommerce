@@ -17,36 +17,42 @@
 								</a>
 							</li>
 
-							{{-- <li class="nav-item dropdown dropdown-large">
-								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">7</span>
+							<li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">{{ auth()->user()->unreadNotifications->count() }}</span>
 									<i class='bx bx-bell'></i>
 								</a>
 								<div class="dropdown-menu dropdown-menu-end">
 									<a href="javascript:;">
 										<div class="msg-header">
 											<p class="msg-header-title">Notifications</p>
-											<p class="msg-header-clear ms-auto">Marks all as read</p>
+											<p class="msg-header-clear ms-auto" onclick="markAllNotificationsAsRead()">Marks all as read</p>
 										</div>
 									</a>
 									<div class="header-notifications-list">
-										<a class="dropdown-item" href="javascript:;">
-											<div class="d-flex align-items-center">
-												<div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
-												</div>
-												<div class="flex-grow-1">
-													<h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
-												ago</span></h6>
-													<p class="msg-info">5 new user registered</p>
-												</div>
-											</div>
-										</a>
+										@foreach(auth()->user()->notifications as $notification)
+                                            @if($notification->notifiable_type === 'App\Models\User')
+                                                @if($notification->notifiable_id === auth()->user()->id)
+												<a class="dropdown-item" href="javascript:;">
+													<div class="d-flex align-items-center">
+														<div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
+														</div>
+														<div class="flex-grow-1">
+															<h6 class="msg-name">{{ $notification->data['subject'] }}<span class="msg-time float-end">  {{ $notification->created_at->diffForHumans() }}
+													</span></h6>
+															<p class="msg-info">{{ $notification->data['content'] }}</p>
+														</div>
+													</div>
+												</a>   
+                                                @endif
+                                            @endif
+                                        @endforeach
 
 									</div>
 									<a href="javascript:;">
 										<div class="text-center msg-footer">View All Notifications</div>
 									</a>
 								</div>
-							</li> --}}
+							</li>
 							{{-- <li class="nav-item dropdown dropdown-large">
 								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">8</span>
 									<i class='bx bx-comment'></i>
@@ -231,3 +237,43 @@
 			</div>
 </header>
 <!--end header -->
+<script type="text/javascript">
+
+	function markAllNotificationsAsRead() {
+
+			 $.ajax({
+				type: "PUT",
+				dataType : 'json',
+				data:{
+					_token: '{{ csrf_token() }}',
+				},
+				url: "/mark-all-notifications-as-read",
+				success:function(data){
+					// Start Message 
+					const Toast = Swal.mixin({
+				   toast: true,
+				   position: 'top-end',
+				   icon: 'success', 
+				   showConfirmButton: false,
+				   timer: 3000 
+			 })
+			 if ($.isEmptyObject(data.error)) {
+					 
+					 Toast.fire({
+					 type: 'success',
+					 title: data.success, 
+					 })
+			 }else{
+				
+			Toast.fire({
+					 type: 'error',
+					 title: data.error, 
+					 })
+				 }
+				  
+			   // End Message  
+			 }
+			 });
+	 }
+  
+ </script>

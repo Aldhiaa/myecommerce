@@ -2,7 +2,7 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3>{{ $cat->category_name }}</h3>           
+            <h3>{{ __($cat->category_name) }}</h3>           
         </div>
         <!--End nav-tabs-->
         <div class="tab-content" id="myTabContent">
@@ -23,11 +23,11 @@
                                     <div class="product-action-1">
                                         {{-- <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                         <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> --}}
-                                        <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productview(this.id)"><i class="fi-rs-eye"></i></a>
+                                        <a aria-label="{{ __('frontend/home.featured_products.quick_view') }}" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productview(this.id)"><i class="fi-rs-eye"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         @if ($product->discount_price == NULL)
-                                        <span class="badge rounded-pill bg-info">New</span>  
+                                        <span class="badge rounded-pill bg-info">{{ __('frontend/home.new_products.new') }}</span>  
                                         @else
                                         @php
                                         $amount = $product->selling_price - $product->discount_price;

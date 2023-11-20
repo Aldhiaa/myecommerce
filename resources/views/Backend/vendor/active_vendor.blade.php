@@ -34,7 +34,7 @@
                                 <th>Vendor username</th>
                                 <th>join date</th>
                                 <th>vendor email</th>
-                                <th>Subcategory name</th>
+                                <th>Status</th>
                                 <th>action</th>
                             </tr>
                         </thead>
@@ -58,7 +58,7 @@
                                 <th>Vendor username</th>
                                 <th>join date</th>
                                 <th>vendor email</th>
-                                <th>Subcategory name</th>
+                                <th>Status</th>
                                 <th>action</th>
                             </tr>
                         </tfoot>

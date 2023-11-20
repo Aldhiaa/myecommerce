@@ -1,9 +1,9 @@
 <div class="container">
   
     <div class="section-title wow animate__animated animate__fadeIn" data-wow-delay="0">
-                  <h3 class="">All Our Vendor List </h3>
+                  <h3 class="">{{ __('frontend/home.vendor.all_vendors_title') }}</h3>
                   <a class="show-all" href="{{ route('front.vendor.all') }}">
-                      All Vendors
+                    {{ __('frontend/home.vendor.all_vendors_link') }}
                       <i class="fi-rs-angle-right"></i>
                   </a>
               </div>
@@ -27,12 +27,12 @@
                             <div class="d-flex justify-content-between align-items-end mb-30">
                                 <div>
                                     <div class="product-category">
-                                        <span class="text-muted">Since 2012</span>
+                                        <span class="text-muted">{{ __('frontend/home.vendor.since') }} 2012</span>
                                     </div>
                                     <h4 class="mb-5"><a href="{{ route('front.vendor.details',$vendor->id) }}">{{ $vendor->name }}</a></h4>
                                     <div class="product-rate-cover">
                                        
-                                       <span class="font-small total-product">{{$vendor->product->count() }} products</span>
+                                       <span class="font-small total-product">{{$vendor->product->count() }} {{ __('frontend/home.vendor.products') }}</span>
                                     </div>
                                 </div>
                                 
@@ -40,10 +40,10 @@
                             <div class="vendor-info mb-30">
                                 <ul class="contact-infor text-muted">
                                     
-                                    <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>Call Us:</strong><span>(+91) - 540-025-124553</span></li>
+                                    <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>{{ __('frontend/home.vendor.call_us') }}:</strong><span>(+91) - 540-025-124553</span></li>
                                 </ul>
                             </div>
-                            <a href="{{ route('front.vendor.details',$vendor->id) }}" class="btn btn-xs">Visit Store <i class="fi-rs-arrow-small-right"></i></a>
+                            <a href="{{ route('front.vendor.details',$vendor->id) }}" class="btn btn-xs">{{ __('frontend/home.vendor.visit_store') }} <i class="fi-rs-arrow-small-right"></i></a>
                         </div>
                     </div>
                 </div>

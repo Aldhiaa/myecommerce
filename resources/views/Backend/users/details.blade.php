@@ -4,16 +4,17 @@
     <div class="page-content"> 
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Vendor details</div>
+            <div class="breadcrumb-title pe-3">User  details</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Vendor detailsp</li>
+                        <li class="breadcrumb-item active" aria-current="page">User  details</li>
                     </ol>
                 </nav>
             </div>
+ 
         </div>
         <!--end breadcrumb-->
         <div class="container">
@@ -22,23 +23,20 @@
                     <div class="col-lg-10">
                       <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('inactive.vendor.approve') }}" method="POST" >
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $vendorDetails->id }}">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Full Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control" value="{{ $vendorDetails->name }}"  />
+                                        <input type="text" name="name" class="form-control" value="{{ $userDetails->name }}"  />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Vendor Shop Name</h6>
+                                        <h6 class="mb-0">username</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control" value="{{ $vendorDetails->name }}"  />
+                                        <input type="text" name="name" class="form-control" value="{{ $userDetails->username }}"  />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -46,38 +44,40 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="email" name="email" class="form-control" value="{{ $vendorDetails->email }}" />
+                                        <input type="email" name="email" class="form-control" value="{{ $userDetails->email }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Vendor Phone</h6>
+                                        <h6 class="mb-0">Password</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input name="phone" type="text" class="form-control" value="{{ $vendorDetails->phone }}" />
+                                        <input type="text" name="password" class="form-control" value="{{ $userDetails->password }}" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">User Phone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input name="phone" type="text" class="form-control" value="{{ $userDetails->phone }}" />
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Vendor Address</h6>
+                                        <h6 class="mb-0">User Address</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="address" class="form-control" value="{{ $vendorDetails->address }}" />
+                                        <input type="text" name="address" class="form-control" value="{{ $userDetails->address }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Vendor join</h6>
+                                        <h6 class="mb-0">User join</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                            <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
-                                                <option selected="">Open this select menu</option>
-                                                <option value="1" {{ $vendorDetails->vendor_join == 2023 ? 'selected' :'' }}>2023</option>
-                                                <option value="2" {{ $vendorDetails->vendor_join == 2024 ? 'selected' :'' }}>2024</option>
-                                                <option value="3" {{ $vendorDetails->vendor_join == 2025 ? 'selected' :'' }}>2025</option>
-                                            </select>
-                                        </div>
+                                        <input type="text" name="address" class="form-control" value="{{ $userDetails->created_at }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -86,12 +86,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <textarea class="form-control" name='vendor_info' id="inputAddress4" rows="3" placeholder="vendor  info"></textarea>                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <button type="submit" class="btn btn-danger " style="width: 160px;" >Inactive Vendor</button>
-                                </div>  
-                            </form>       
+                                </div>      
                         </div>
                       </div>
 
@@ -101,13 +96,4 @@
         </div>
     </div>
 </div>
-<script>
-    function openFileDialog() {
-      document.getElementById('photo-input').click();
-    }
-
-    function submitForm() {
-      document.getElementById('photo-form').submit();
-    }
-</script>
 @endsection

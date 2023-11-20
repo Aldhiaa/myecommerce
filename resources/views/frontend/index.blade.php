@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                    <h4 class="section-title style-1 mb-30 animated animated"> Hot Deals </h4>
+                    <h4 class="section-title style-1 mb-30 animated animated"> {{ __('frontend/home.hot_deals_title') }} </h4>
                     <div class="product-list-small animated animated">
                         @foreach ($hot_dealsproducts as $item)
                         <article class="row align-items-center hover-up">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-md-0 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                    <h4 class="section-title style-1 mb-30 animated animated">  Special Offer </h4>
+                    <h4 class="section-title style-1 mb-30 animated animated">{{ __('frontend/home.special_deals_title') }} </h4>
                     <div class="product-list-small animated animated">
                         @foreach ($specail_offerproducts as $item)
                         <article class="row align-items-center hover-up">
@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 d-none d-lg-block wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <h4 class="section-title style-1 mb-30 animated animated">Recently added</h4>
+                    <h4 class="section-title style-1 mb-30 animated animated">{{ __('frontend/home.recently_added_title') }}</h4>
                     <div class="product-list-small animated animated">
                         @foreach ($specail_dealsproducts as $item)
                         <article class="row align-items-center hover-up">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 d-none d-xl-block wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                    <h4 class="section-title style-1 mb-30 animated animated"> Special Deals </h4>
+                    <h4 class="section-title style-1 mb-30 animated animated">{{ __('frontend/home.special_offer_title') }}</h4>
                     <div class="product-list-small animated animated">
                         @foreach ($specail_dealsproducts as $item)
                         <article class="row align-items-center hover-up">

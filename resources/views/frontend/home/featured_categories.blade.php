@@ -2,7 +2,7 @@
     <div class="container wow animate__animated animate__fadeIn">
         <div class="section-title">
             <div class="title">
-                <h3>Featured Categories</h3>
+                <h3>{{ __('frontend/home.featured_categories.title') }}</h3>
                
             </div>
             <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
@@ -15,7 +15,7 @@
                         <a href="{{ url('product/category/'.$item['id'].'/'.$item['category_slug']) }}" tabindex="0"><img src="{{ asset($item->category_image) }}" alt=""></a>
                     </figure>
                     <h6><a href="{{ url('product/category/'.$item['id'].'/'.$item['category_slug']) }}" tabindex="0">{{ $item->category_name }}</a></h6>
-                    <span>{{  $item->products->count()  }} items</span>
+                    <span>{{  $item->products->count()  }} {{ __('frontend/home.featured_categories.items') }}</span>
                 </div> 
                 @endforeach
 

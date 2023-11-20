@@ -13,6 +13,9 @@ use Stripe\Stripe;
 use Stripe\Charge;
 use Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\AdminNotification;
+use App\Models\User;
+use Illuminate\Support\Facades\Notification;
 class CashONDeliveryController extends Controller
 {
     public function cashONDELOrder(Request $request){       
@@ -22,8 +25,8 @@ class CashONDeliveryController extends Controller
             $total_amount = round(Cart::total());
         }
 
-        $order_number =  uniqid();
-        $data = Session::get('checkout_data');     
+        $order_number = 'ordC' . substr(uniqid(), 0, 8);
+        $data = Session::get('checkout_data');  
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'division_id' => $data['division_id'],
@@ -33,6 +36,7 @@ class CashONDeliveryController extends Controller
             'email' => $data['shipping_email'],
             'phone' => $data['shipping_phone'],
             'adress' => $data['shipping_address'],
+            'location_address' => $data['location_address'],
             'post_code' => $data['post_code'],
             'notes' => $data['notes'],
             'payment_type' =>'pay on delivery',
@@ -49,20 +53,23 @@ class CashONDeliveryController extends Controller
 
         ]);
 
-             // Start Send Email
 
-             $invoice = Order::findOrFail($order_id);
+        $invoice = Order::findOrFail($order_id);
+        $data = [
 
-             $data = [
+            'invoice_no' => $invoice->invoice_no,
+            'amount' => $total_amount,
+            'name' => $invoice->name,
+            'email' => $invoice->email,    
+        ];
      
-                 'invoice_no' => $invoice->invoice_no,
-                 'amount' => $total_amount,
-                 'name' => $invoice->name,
-                 'email' => $invoice->email,    
-             ];
-             Mail::to($request->email)->send(new OrderMail($data));
-     
-             // End Send Email 
+        //send a notification to the admin that a new order is requested
+        $subject='order request';
+        $content ='there is a request for a cash on delivery request from this User'.$data['shipping_name'].'and this order number'.$order_number;
+        $recipientType= 'admin';
+        $admins =User::where('role','admin')->get();
+        Notification::send($admins, new AdminNotification($subject, $content,$recipientType));
+
      
         $carts = Cart::content();
         foreach($carts as $cart){

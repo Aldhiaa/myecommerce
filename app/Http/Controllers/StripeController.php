@@ -34,12 +34,14 @@ class StripeController extends Controller
           'currency' => 'usd',
           'description' => 'Easy Mulit Vendor Shop',
           'source' => $token,
-          'metadata' => ['order_id' => uniqid()]
+          'metadata' => ['order_id' => 'ordS' . substr(uniqid(), 0, 8)]
         ]);
 
-         dd($charge);
         
-         $data = Session::get('checkout_data');
+        
+        $data = Session::get('checkout_data');
+        dd($data);
+        dd($charge);
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'division_id' => $data['division_id'],

@@ -12,6 +12,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CashpayController;
 use App\Http\Controllers\CashONDeliveryController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\AUserController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
@@ -36,6 +37,11 @@ use App\Http\Controllers\Backend\AdminNotificationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('setlocale/{locale}', function ($locale) {
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('setLocale');
 
 Route::get('/',[FrontendController::class, 'Index'])->name('/');
 
@@ -132,7 +138,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::post('vendor/active/approve',[AdminController::class, 'VendorActiveapprove'])->name('active.vendor.approve');
     Route::get('active/vendor/details/{id}',[AdminController::class, 'activeVendorDetails'])->name('active.vendor.details');
 
-    Route::post('vendor/active/approve',[AdminController::class, 'Vendorinactiveapprove'])->name('inactive.vendor.approve');
+    Route::post('vendor/inactive/approve',[AdminController::class, 'Vendorinactiveapprove'])->name('inactive.vendor.approve');
 
 });
 
@@ -234,6 +240,11 @@ Route::controller(SliderController::class)->group(function(){
     Route::get('edit/slider/{id}','editslider')->name('edit.slider');
     Route::post('slider/update/{id}','updateslider')->name('eidt.slider.update');
     Route::get('delete/slider/{id}','deleteslider')->name('delete.slider');
+});
+Route::controller(AUserController::class)->group(function(){
+    Route::get('all/user','alluser')->name('all.user');
+    Route::get('veiw/user/details/{id}','AuserDetails')->name('veiw.user.details');
+
 });
 
 Route::controller(BannerController::class)->group(function(){

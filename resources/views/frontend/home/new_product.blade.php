@@ -1,10 +1,10 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3> New Products </h3>
+            <h3>{{ __('frontend/home.new_products.section_title') }} </h3>
             <ul class="nav nav-tabs links" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tab-all" aria-selected="true">All</button>
+                    <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tab-all" aria-selected="true">{{ __('frontend/home.new_products.tab_all') }}</button>
                 </li>
                 @foreach ($categories as $item)
                 <li class="nav-item" role="presentation">
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         @if ($product->discount_price == NULL)
-                                        <span class="badge rounded-pill bg-info">New</span>  
+                                        <span class="badge rounded-pill bg-info">{{ __('frontend/home.new_products.new') }}</span>  
                                         @else
                                         @php
                                         $amount = $product->selling_price - $product->discount_price;
@@ -62,7 +62,7 @@
                                         <span class="font-small ml-5 text-muted"> (4.0)</span>
                                     </div> --}}
                                     <div>
-                                        <span class="font-small text-muted">By <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
+                                        <span class="font-small text-muted">{{ __('frontend/home.new_products.by') }} <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
                                     </div>
                                     <div class="product-card-bottom">
                                         @if ($product->discount_price == NULL)
@@ -77,7 +77,7 @@
                                         @endif
     
                                         <div class="add-cart">
-                                            <a class="add" href="javascript:void(0)" onclick="addproductToCart('{{ $product->id }}', '{{ $product->vendor->id }}')">Add</a>
+                                            <a class="add" href="javascript:void(0)" onclick="addproductToCart('{{ $product->id }}', '{{ $product->vendor->id }}')">{{ __('frontend/home.new_products.add') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         @if ($product->discount_price == NULL)
-                                        <span class="badge rounded-pill bg-info">New</span>  
+                                        <span class="badge rounded-pill bg-info">{{ __('frontend/home.new_products.new') }}</span>  
                                         @else
                                         @php
                                         $amount = $product->selling_price - $product->discount_price;
@@ -136,7 +136,7 @@
                                         <span class="font-small ml-5 text-muted"> (4.0)</span>
                                     </div> --}}
                                     <div>
-                                        <span class="font-small text-muted">By <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
+                                        <span class="font-small text-muted">{{ __('frontend/home.new_products.by') }} <a href="{{ route('vendor.details', $product->vendor->id)  }}">{{ $product->vendor->name }}</a></span>
                                     </div>
                                     <div class="product-card-bottom">
                                         @if ($product->discount_price == NULL)
@@ -151,7 +151,7 @@
                                         @endif
     
                                         <div class="add-cart">
-                                            <a class="add" href="javascript:void(0)" onclick="addproductToCart('{{ $product->id }}', '{{ $product->vendor->id }}')"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a class="add" href="javascript:void(0)" onclick="addproductToCart('{{ $product->id }}', '{{ $product->vendor->id }}')"><i class="fi-rs-shopping-cart mr-5"></i>{{ __('frontend/home.new_products.add') }} </a>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@
                     <!-- Handle case when there are no products for this category -->
                     @if ($products->where('category_id', $category->id)->isEmpty())
                     <div class="col-12">
-                        <p>No products available for this category.</p>
+                        <p>{{ __('frontend/home.no_products_available') }}</p>
                     </div>
                     @endif
                 </div>

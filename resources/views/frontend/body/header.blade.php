@@ -31,15 +31,26 @@
                         <ul>
                            
                             <li>
-                                <a class="language-dropdown-active" href="#">English <i class="fi-rs-angle-small-down"></i></a>
+                                <a class="language-dropdown-active" href="#">
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ __('frontend/home/header.arabic') }}
+                                    @elseif(app()->getLocale() == 'en')
+                                    {{ __('frontend/home/header.english') }}
+                                    @endif
+                                    <i class="fi-rs-angle-small-down"></i>
+                                </a>
                                 <ul class="language-dropdown">
-                                    {{-- <li>
-                                        <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/flag-fr.png') }}" alt="" />Français</a>
-                                    </li> --}}
+                                    <li>
+                                        <a href="{{ route('setLocale', ['locale' => 'ar']) }}">{{ __('frontend/home/header.arabic') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('setLocale', ['locale' => 'en']) }}">{{ __('frontend/home/header.english') }}</a>
+                                    </li>
+                                    <!-- Add more languages as needed -->
                                 </ul>
                             </li>
-
-                             <li>Need help? Call Us: <strong class="text-brand">{{ $setting->support_phone ?? 'N/A' }}</strong></li>
+                            
+                             <li>{{ __('frontend/home/header.need_help') }}<strong class="text-brand">{{ $setting->support_phone ?? 'N/A' }}</strong></li>
                            
                         </ul>
                     </div>
@@ -59,18 +70,9 @@
                             @csrf
                             {{-- <select class="select-active">
                                 <option>All Categories</option>
-                                <option>Milks and Dairies</option>
-                                <option>Wines & Alcohol</option>
-                                <option>Clothing & Beauty</option>
-                                <option>Pet Foods & Toy</option>
-                                <option>Fast food</option>
-                                <option>Baking material</option>
-                                <option>Vegetables</option>
-                                <option>Fresh Seafood</option>
-                                <option>Noodles & Rice</option>
-                                <option>Ice cream</option>
+                      
                             </select> --}}
-                            <input type="text" onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="Search for items..." />
+                            <input type="text" onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="{{ __('frontend/home/header.search_place') }}" />
                             <div id="searchProducts"></div>
                         </form>
                     </div>
@@ -88,7 +90,7 @@
                                     <img alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
                                     <span class="pro-count blue" id="cartQty">0</span>
                                 </a>
-                                <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
+                                <a href="{{ route('mycart') }}"><span class="lable">{{ __('frontend/home/header.cart') }}</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                             <!--   // mini cart start with ajax -->
                                             <div id="miniCart">
@@ -109,10 +111,10 @@
                             </div>
                             @guest
                                 <div class="header-action-icon-2">
-                                    <a href="{{ route('login') }}"><span class="lable ml-0">login</span></a>
+                                    <a href="{{ route('login') }}"><span class="lable ml-0">{{ __('frontend/home/header.login') }}</span></a>
                                 </div>
                                 <div class="header-action-icon-2">
-                                    <a href="{{ route('register') }}"><span class="lable ml-0">Register</span></a>
+                                    <a href="{{ route('register') }}"><span class="lable ml-0">{{ __('frontend/home/header.register') }}</span></a>
                                 </div>
                             @endguest
                             @auth
@@ -122,11 +124,11 @@
                                 </a>
                                 @if (Auth::check())
                                      @if (Auth::user()->role == 'admin')
-                                         <a href="{{ route('admin.dashboard') }}"><span class="label ml-0">Dashboard</span></a>
+                                         <a href="{{ route('admin.dashboard') }}"><span class="label ml-0">{{ __('frontend/home/header.dashboard') }}</span></a>
                                      @elseif (Auth::user()->role == 'vendor')
-                                         <a href="{{ route('vendor.dashboard') }}"><span class="label ml-0">Dashboard</span></a>
+                                         <a href="{{ route('vendor.dashboard') }}"><span class="label ml-0">{{ __('frontend/home/header.dashboard') }}</span></a>
                                      @else
-                                         <a href="{{ route('dashboard') }}"><span class="label ml-0">Dashboard</span></a>
+                                         <a href="{{ route('dashboard') }}"><span class="label ml-0">{{ __('frontend/home/header.dashboard') }}</span></a>
                                      @endif                              
                                 @endif                                
                                 
@@ -148,7 +150,7 @@
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                         </li> --}}
                                         <li>
-                                            <a href="{{ route('logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
+                                            <a href="{{ route('logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>{{ __('frontend/home/header.sign_out') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,7 +180,7 @@
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categories-button-active" href="#">
-                            <span class="fi-rs-apps"></span> All Categories
+                            <span class="fi-rs-apps"></span> {{ __('frontend/home/header.all_categories') }}
                             <i class="fi-rs-angle-down"></i>
                         </a>
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
@@ -224,7 +226,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">Show more...</span></div>
+                            <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">{{ __("frontend/home/header.show_more") }}</span></div>
                         </div>
                     </div>
                     
@@ -233,7 +235,7 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="active" href="{{ url('/') }}">Home  </a>
+                                    <a class="active" href="{{ url('/') }}">{{ __('frontend/home/header.home') }}  </a>
                                     
                                 </li>
                                 @foreach ($categories as $cat)
@@ -249,7 +251,7 @@
                             
 
 
-                                    <a href="page-contact.html">Contact</a>
+                                    <a href="page-contact.html">{{ __('frontend/home/header.contact') }}</a>
                                 </li>
                             </ul>
                         </nav>
@@ -259,7 +261,7 @@
 
                 <div class="hotline d-none d-lg-flex">
                     <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg') }}" alt="hotline" />
-                    <p>{{ $setting->support_phone ?? 'N/A' }}<span> Support Center</span></p>
+                    <p>{{ $setting->support_phone ?? 'N/A' }}<span> {{ __('frontend/home/header.support_center') }}</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">
@@ -281,7 +283,7 @@
                                 <img alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
                                 <span class="pro-count blue" id="cartQty"></span>
                             </a>
-                            <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
+                            <a href="{{ route('mycart') }}"><span class="lable">{{ __('frontend/home/header.cart') }}</span></a>
                             <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         <!--   // mini cart start with ajax -->
                                         <div id="miniCart">
@@ -294,8 +296,8 @@
                                         <h4>Total <span id="cartSubTotal">0</span></h4>
                                     </div>
                                     <div class="shopping-cart-button">
-                                        <a href="{{ route('mycart') }}" class="outline">View cart</a>
-                                        <a href="{{ route('checkout') }}">Checkout</a>
+                                        <a href="{{ route('mycart') }}" class="outline">{{ __('frontend/home/header.view_cart') }}</a>
+                                        <a href="{{ route('checkout') }}">{{ __('frontend/home/header.checkout') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -355,7 +357,7 @@
                 <!-- mobile menu start -->
                 <nav>
                     <ul class="mobile-menu font-heading">
-                        <li class="menu-item-has-children"><a href="{{ route('/') }}">Home</a>
+                        <li class="menu-item-has-children"><a href="{{ route('/') }}">{{ __('frontend/home/header.home') }}</a>
                              
                         </li>
                         @foreach ($categories as $cat)
@@ -372,11 +374,13 @@
                         <li class="menu-item-has-children">
                             <a href="#">Language</a>
                             <ul class="dropdown">
-                                <li><a href="#">English</a></li>
+                                <li><a href="{{ route('setLocale', ['locale' => 'ar']) }}">{{ __('frontend/home/header.arabic') }}</a></li>
+                                <li><a href="{{ route('setLocale', ['locale' => 'ar']) }}">{{ __('frontend/home/header.arabic') }}</a></li>
                             </ul>
                         </li>
+                    
                         <div class="menu-item-has-children">
-                            <a href="{{ route('login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                            <a href="{{ route('login') }}"><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }} / Sign Up </a>
                         </div>
                     </ul>
                 </nav>

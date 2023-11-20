@@ -102,7 +102,6 @@ class AdminController extends Controller
     }
     public function InactiveVendor(){
         $inactivevendor =User::where('status','inactive')->where('role','vendor')->latest()->get();
-        
         return view('Backend.vendor.inactive_vendor',compact('inactivevendor'));
     }
 

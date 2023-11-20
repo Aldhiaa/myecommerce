@@ -11,6 +11,7 @@ use App\Models\Brand;
 use App\Models\User;
 use App\Models\Multiimage;
 use Image;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 class ProductController extends Controller
 {
@@ -39,7 +40,7 @@ class ProductController extends Controller
             
             'selling_price' => 'numeric|nullable',
             'discount_price' => 'numeric|nullable',
-            'product_code' => 'string|nullable',
+     
             'product_qty' => 'integer|nullable',
             'brand_id' => 'integer|nullable',
             'category_id' => 'integer|nullable',
@@ -65,7 +66,7 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
 
-            'product_code' => $request->product_code,
+            'product_code' => 'PRD-' . Str::random(6),
             'product_qty' => $request->product_qty,
             'product_tags' => $request->product_tags,
             'product_size' => $request->product_size,
@@ -132,7 +133,7 @@ class ProductController extends Controller
      
               'selling_price' => 'numeric|nullable',
               'discount_price' => 'numeric|nullable',
-              'product_code' => 'string|nullable',
+       
               'product_qty' => 'integer|nullable',
               'brand_id' => 'integer|nullable',
               'category_id' => 'integer|nullable',
@@ -181,7 +182,7 @@ class ProductController extends Controller
               'product_name' => $request->product_name,
               'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
   
-              'product_code' => $request->product_code,
+            
               'product_qty' => $request->product_qty,
               'product_tags' => $request->product_tags,
               'product_size' => $request->product_size,

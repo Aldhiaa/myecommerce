@@ -261,8 +261,6 @@
 			 }
 			 });
 	 }
- 
- 
-	 /// End Add To Cart Prodcut  
+
  </script>
 <!--end header -->

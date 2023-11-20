@@ -1,10 +1,10 @@
 <section class="section-padding pb-5">
     <div class="container">
         <div class="section-title wow animate__animated animate__fadeIn">
-            <h3 class=""> Featured Products </h3>
+            <h3 class=""> {{ __('frontend/home.featured_products.featured_products') }} </h3>
              
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                 <div class="banner-img style-2">
                     <div class="banner-text">
@@ -12,7 +12,7 @@
                         <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i class="fi-rs-arrow-small-right"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-lg-9 col-md-12 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                 <div class="tab-content" id="myTabContent-1">
                     <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
@@ -29,13 +29,13 @@
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productview(this.id)"> <i class="fi-rs-eye"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="{{ __('frontend/home.featured_products.quick_view') }}" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productview(this.id)"> <i class="fi-rs-eye"></i></a>
+                                        <a aria-label="{{ __('frontend/home.featured_products.add_to_wishlist') }}" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="{{ __('frontend/home.featured_products.compare') }}" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         @if ($product->discount_price == NULL)
-                                        <span class="badge rounded-pill bg-info">New</span>  
+                                        <span class="badge rounded-pill bg-info">{{ __('frontend/home.new_products.new') }}</span>  
                                         @else
                                         @php
                                         $amount = $product->selling_price - $product->discount_price;
@@ -74,9 +74,9 @@
                                         <div class="progress mb-5">
                                             <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <span class="font-xs text-heading"> Sold: 90/120</span>
+                                        <span class="font-xs text-heading"> {{ __('frontend/home.featured_products.sold') }}: 90/120</span>
                                     </div>
-                                    <a href="" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
+                                    <a href="" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>{{ __('frontend/home.featured_products.add_to_cart') }}</a>
                                 </div>
                                </div>
                             <!--End product Wrap-->   

@@ -75,10 +75,7 @@
                            <label for="inputDiscountprice" class="form-label">Discount Price</label>
                            <input type="text" name="discount_price" class="form-control" id="inputDiscountprice" placeholder="00.00">
                            </div>
-                           <div class="col-md-6">
-                           <label for="inputCostPerPrice" class="form-label">Product Code</label>
-                           <input type="text" name="product_code" class="form-control" id="inputCostPerPrice" placeholder="00.00">
-                           </div>
+
                            <div class="col-md-6">
                            <label for="inputStarPoints" class="form-label">Product Quantity</label>
                            <input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00">
