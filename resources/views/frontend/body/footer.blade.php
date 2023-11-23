@@ -10,10 +10,10 @@ $setting =App\Models\SiteSetting::find(1);
                     <div class="position-relative newsletter-inner">
                         <div class="newsletter-content">
                             <h2 class="mb-20">
-                                Stay home & get your daily <br />
-                                needs from our shop
+                                {{ __('frontend/footer.stay_home_title') }} <br />
+                                {{ __('frontend/footer.stay_home_subtitle') }}
                             </h2>
-                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">{{ $setting->title ?? 'N/A' }}</span></p>
+                            <p class="mb-45">{{ __('frontend/footer.start_daily_shopping') }} <span class="text-brand">{{ $setting->title ?? 'N/A' }}</span></p>
                             {{-- <form class="form-subcriber d-flex">
                                 <input type="email" placeholder="Your emaill address" />
                                 <button class="btn" type="submit">Subscribe</button>
@@ -107,10 +107,10 @@ $setting =App\Models\SiteSetting::find(1);
                             <p class="font-lg text-heading">{{ $setting->title ?? 'N/A' }}</p>
                         </div>
                         <ul class="contact-infor">
-                            <li><img src="assets/imgs/theme/icons/icon-location.svg" alt="" /><strong>Address: </strong> <span>{{ $setting->company_address ?? 'N/A'}}</span></li>
-                            <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>Call Us:</strong><span>{{ $setting->phone_one ?? 'N/A'}}</span></li>
-                            <li><img src="assets/imgs/theme/icons/icon-email-2.svg" alt="" /><strong>Email:</strong><span>{{ $setting->email ?? 'N/A'}}</span></li>
-                            <li><img src="assets/imgs/theme/icons/icon-clock.svg" alt="" /><strong>Hours:</strong><span>10:00 - 18:00, Mon - Sat</span></li>
+                            <li><img src="assets/imgs/theme/icons/icon-location.svg" alt="" /><strong>{{ __('frontend/footer.company_address') }}< </strong> <span>{{ $setting->company_address ?? 'N/A'}}</span></li>
+                            <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>{{ __('frontend/footer.call_us') }}</strong><span>{{ $setting->phone_one ?? 'N/A'}}</span></li>
+                            <li><img src="assets/imgs/theme/icons/icon-email-2.svg" alt="" /><strong>{{ __('frontend/footer.email') }}</strong><span>{{ $setting->email ?? 'N/A'}}</span></li>
+                            <li><img src="assets/imgs/theme/icons/icon-clock.svg" alt="" /><strong>{{ __('frontend/footer.stay_connected') }}</strong><span>10:00 - 18:00, Mon - Sat</span></li>
                         </ul>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ $setting =App\Models\SiteSetting::find(1);
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms &amp; Conditions</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">{{ __('frontend/home/header.support_center') }}</a></li>
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
@@ -130,7 +130,7 @@ $setting =App\Models\SiteSetting::find(1);
                     <h4 class="widget-title">Account</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
                         <li><a href="#">Sign In</a></li>
-                        <li><a href="#">View Cart</a></li>
+                        <li><a href="{{ route('mycart') }}">{{ __('frontend/home/header.view_cart') }}</a></li>
                         {{-- <li><a href="#">My Wishlist</a></li>
                         <li><a href="#">Track My Order</a></li> --}}
                         <li><a href="#">Help Ticket</a></li>
@@ -176,12 +176,12 @@ $setting =App\Models\SiteSetting::find(1);
                  
                 <div class="hotline d-lg-inline-flex">
                     <img src="assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                    <p>{{ $setting->support_phone ?? 'N/A' }}<span> Support Center</span></p>
+                    <p>{{ $setting->support_phone ?? 'N/A' }}<span> {{ __('frontend/home/header.support_center') }}</span></p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
-                    <h6>Follow Us</h6>
+                    <h6>{{ __('frontend/footer.follow_us') }}</h6>
                     <a href="{{ $setting->facebook ?? 'N/A' }}"><img src="assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
                     <a href="{{ $setting->twitter ?? 'N/A' }}"><img src="assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
                     <a href="#"><img src="assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>

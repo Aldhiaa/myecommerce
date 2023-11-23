@@ -2,31 +2,47 @@
 
 return [
     'featured_categories' => [
-        'title' => 'التصنيفات المميزة',
+        'title' => 'الفئات المميزة',
         'items' => 'عناصر',
     ],
 
     'banners' => [
-        'section_title' => 'اللافتات المميزة',
+        'section_title' => 'لافتات مميزة',
         'shop_now' => 'تسوق الآن',
     ],
 
     'new_products' => [
         'section_title' => 'منتجات جديدة',
         'tab_all' => 'الكل',
-
-        'no_products_available' => 'لا تتوفر منتجات لهذه الفئة.',
+        'new' => 'جديد',
+        'by' => 'بواسطة',
+        'add' => 'إضافة',
+        'no_products_available' => 'لا توجد منتجات متاحة لهذه الفئة.',
     ],
-
+    
     'featured_products' => [
-        'featured_products' => 'المنتجات المميزة',
+        'featured_products' => 'منتجات مميزة',
         'quick_view' => 'عرض سريع',
         'add_to_wishlist' => 'إضافة إلى قائمة الرغبات',
         'compare' => 'مقارنة',
-        'new' => 'جديد',
         'sold' => 'تم البيع',
-        'add_to_cart' => 'إضافة إلى السلة',
+        'add_to_cart' => 'أضف إلى السلة',
     ],
 
+    'hot_deals_title' => 'صفقات ساخنة',
+    'special_offer_title' => 'عرض خاص',
+    'recently_added_title' => 'تمت إضافته حديثًا',
+    'special_deals_title' => 'صفقات خاصة',
+
+    'vendor' => [
+        'all_vendors_title' => 'كل قائمة بائعينا',
+        'all_vendors_link' => 'جميع البائعين',
+        'mall_badge' => 'مركز تجاري',
+        'since' => 'منذ',
+        'products' => 'منتجات',
+        'call_us' => 'اتصل بنا:',
+        'visit_store' => 'زيارة المتجر',
+    ],
 ];
+
 ?>

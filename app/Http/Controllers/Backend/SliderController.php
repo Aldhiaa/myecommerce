@@ -20,8 +20,8 @@ class SliderController extends Controller
 
     public function storeslider(Request $request){
         $validation =$request->validate([
-            'slider_title' => 'required',
-            'short_title' => 'required',
+            'slider_title' => 'nullable',
+            'short_title' => 'nullable',
             'slider_image' => 'required',
         ]);
         $image =$request->file('slider_image');
@@ -51,8 +51,8 @@ class SliderController extends Controller
    }
    public function updateslider(Request $request,$id){
     $validation =$request->validate([
-        'slider_title' => 'required',
-        'short_title' => 'required',
+        'slider_title' => 'nullable',
+        'short_title' => 'nullable',
     ]);
     $slider=Slider::findOrFail($id);
     $old_image =$slider->slider_image;

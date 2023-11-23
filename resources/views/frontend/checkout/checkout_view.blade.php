@@ -224,6 +224,12 @@
                         </div>
                         <div class="custome-radio">
             
+                            <input class="form-check-input"  type="radio" name="payment_option" value="kuraimi" id="exampleRadios3" checked="">
+            
+                            <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Kuraimi</label>
+                        </div>
+                        <div class="custome-radio">
+            
                             <input class="form-check-input"  type="radio" name="payment_option" value="cash" id="exampleRadios4" checked="">
             
                             <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>

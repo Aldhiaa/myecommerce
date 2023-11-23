@@ -95,6 +95,8 @@ class VendorController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'vendor_card' => ['required', 'string'],
+            'vendor_record' => ['nullable', 'string'],
             'password' => ['required', 'confirmed']
         ]);
 
@@ -104,6 +106,8 @@ class VendorController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'vendor_join' => $request->vendor_join,
+            'vendor_card' => $request->vendor_card,
+            'vendor_record' => $request->vendor_record,
             'password' => Hash::make($request->password),
             'role' => 'vendor',
             'status' => 'inactive',

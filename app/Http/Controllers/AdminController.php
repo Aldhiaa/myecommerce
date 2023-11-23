@@ -143,12 +143,12 @@ class AdminController extends Controller
 
     public function AllAdmin(){
         $alladminuser = User::where('role','admin')->latest()->get();
-        return view('backend.admin.all_admin',compact('alladminuser'));
+        return view('Backend.admin.all_admin',compact('alladminuser'));
     }// End Mehtod
     
     public function AddAdmin(){
         $roles = Role::all();
-        return view('backend.admin.add_admin',compact('roles'));
+        return view('Backend.admin.add_admin',compact('roles'));
     }// End Mehtod 
     public function AdminUserStore(Request $request){
 
@@ -179,7 +179,7 @@ class AdminController extends Controller
 
         $user = User::findOrFail($id);
         $roles = Role::all();
-        return view('backend.admin.edit_admin',compact('user','roles'));
+        return view('Backend.admin.edit_admin',compact('user','roles'));
     }// End Mehtod 
 
 
