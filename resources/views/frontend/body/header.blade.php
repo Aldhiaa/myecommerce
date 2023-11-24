@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <style>
     .category-list {
     display: flex;
@@ -306,14 +307,12 @@
                                     </ul>
                                 </li>
                                 @endforeach
+                                <li>
+                                    <a href="page-contact.html">Contact</a>
+                                </li>
                                 <li class="arrow left-arrow"><a href="#"><i class="fi-rs-angle-left"></i></a></li>
                                 <!-- Right arrow -->
                                 <li class="arrow right-arrow"><a href="#"><i class="fi-rs-angle-right"></i></a></li>
-                            
-
-
-                                    <a href="page-contact.html">Contact</a>
-                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -470,7 +469,6 @@
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function () {
         var container = $('.category-list');
@@ -500,5 +498,5 @@
             arrowRight.hide();
         }
     });
-</script>
+    </script>
     
