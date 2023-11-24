@@ -189,8 +189,9 @@
                                     @php
                                         $categoryLimit = 5; // Define the number of categories to display initially
                                         $categoriesA = $categories->toArray(); // Convert to a standard PHP array
+                                        $categoriesB = $categories->toArray(); // Convert to a standard PHP array
                                         $categoriesToRight = array_slice($categoriesA, 0, $categoryLimit);
-                                        $categoriesToLeft = array_slice($categoriesA, $categoryLimit);
+                                        $categoriesToLeft = array_slice($categoriesB, $categoryLimit);
                                     @endphp
                                     @foreach ($categoriesToRight as $cat)
                                         <li>
