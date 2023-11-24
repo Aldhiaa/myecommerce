@@ -1,3 +1,26 @@
+<style>
+    .category-list {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.category-list li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px; /* Adjust the spacing between categories */
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+/* Hide arrows initially */
+.left-arrow, .right-arrow {
+    display: none;
+}
+
+</style>
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
         <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
@@ -267,7 +290,7 @@
                     
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
-                            <ul>
+                            <ul class="category-list">
                                 
                                 <li>
                                     <a class="active" href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
@@ -283,6 +306,9 @@
                                     </ul>
                                 </li>
                                 @endforeach
+                                <li class="arrow left-arrow"><a href="#"><i class="fi-rs-angle-left"></i></a></li>
+                                <!-- Right arrow -->
+                                <li class="arrow right-arrow"><a href="#"><i class="fi-rs-angle-right"></i></a></li>
                             
 
 
@@ -444,3 +470,35 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var container = $('.category-list');
+        var arrowLeft = $('.left-arrow');
+        var arrowRight = $('.right-arrow');
+    
+        // Calculate the total width of the category list
+        var totalWidth = 0;
+        $('.category-list li').each(function () {
+            totalWidth += $(this).outerWidth(true);
+        });
+    
+        // Show/hide arrows based on container width
+        if (totalWidth > container.width()) {
+            arrowLeft.show();
+    
+            // Handle left arrow click
+            arrowLeft.click(function () {
+                container.animate({ scrollLeft: '-=200' }, 'fast');
+            });
+    
+            // Handle right arrow click
+            arrowRight.click(function () {
+                container.animate({ scrollLeft: '+=200' }, 'fast');
+            });
+        } else {
+            arrowRight.hide();
+        }
+    });
+</script>
+    

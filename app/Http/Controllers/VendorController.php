@@ -93,6 +93,8 @@ class VendorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'phone' => ['required', 'number'],
+            'vendor_trade_type' => ['required', 'string'],
             'vendor_card' => ['required', 'string'],
             'vendor_record' => ['nullable', 'string'],
             'password' => ['required', 'confirmed']
@@ -108,6 +110,7 @@ class VendorController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
+            'vendor_trade_type' => $request->vendor_trade_type,
             'vendor_join' => Carbon::now()->format('d F Y'),
             'vendor_card' => $vendor_card,
             'password' => Hash::make($request->password),

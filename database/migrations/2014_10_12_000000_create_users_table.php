@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('vendor_info')->nullable();
             $table->string('vendor_card')->nullable();
             $table->string('vendor_record')->nullable();
+            $table->string('vendor_trade_type')->nullable();
             $table->enum('role',['admin','vendor','user'])->default('user');
             $table->enum('status',['active','inactive'])->default('active');
          

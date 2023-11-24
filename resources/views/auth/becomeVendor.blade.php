@@ -63,6 +63,12 @@
                                             <div>{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="form-group">
+                                            <input type="text" required="" name="vendor_trade_type" placeholder="{{ __('frontend/becomeVendor.vendor_trade_type') }}" />
+                                            @error('vendor_trade_type')
+                                            <div>{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="form-group" >
                                             <input type="file" id="file_upload_id" style="display:none" name="vendor_card" />
 
