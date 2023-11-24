@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VendorActive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -10,6 +11,9 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Order;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VendorActive;
 class AdminController extends Controller
 {
     public function AdminDashboard(){
@@ -119,9 +123,38 @@ class AdminController extends Controller
 
     public function VendorActiveapprove(Request $request){
         $vendor_id =$request->id;
+        $data =[
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'vendor_join' => Carbon::now()->format('d F Y'),
+            'status' => 'inactive',
+        ];
+        if ($request->file('vendor_card')) {
+            $image = $request->file('vendor_card');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            $vendor_card = 'upload/vendor_images/'.$name_gen;
+            $data['vendor_card']  =$vendor_card; 
+        }
+
+
+        if ($request->file('vendor_record')) {
+            $image = $request->file('vendor_record');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            $vendor_record = 'upload/vendor_images/'.$name_gen;
+            $data['vendor_record'] = $vendor_record; 
+        }
+        $data['status'] ='active';
         $user =User::findOrFail($vendor_id)->update([
-            'status' => 'active',
+            $data
         ]);
+        $email=$request->email;
+        $name=$request->name;
+
+        Mail::to($request->email)->send(new VendorActive($email,$name));
         return redirect()->route('active.vendor')->with('status', 'status changed successfully');
     }
 

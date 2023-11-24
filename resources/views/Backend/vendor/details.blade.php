@@ -4,27 +4,15 @@
     <div class="page-content"> 
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">User Profile</div>
+            <div class="breadcrumb-title pe-3">Vendor details</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profilep</li>
+                        <li class="breadcrumb-item active" aria-current="page">Vendor detailsp</li>
                     </ol>
                 </nav>
-            </div>
-            <div class="ms-auto">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Settings</button>
-                    <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                        <a class="dropdown-item" href="javascript:;">Another action</a>
-                        <a class="dropdown-item" href="javascript:;">Something else here</a>
-                        <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                    </div>
-                </div>
             </div>
         </div>
         <!--end breadcrumb-->
@@ -50,7 +38,7 @@
                                         <h6 class="mb-0">Vendor Shop Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control" value="{{ $vendorDetails->name }}"  />
+                                        <input type="text" name="username" class="form-control" value="{{ $vendorDetails->username }}"  />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -83,21 +71,56 @@
                                         <h6 class="mb-0">Vendor join</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                            <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
-                                                <option selected="">Open this select menu</option>
-                                                <option value="1" {{ $vendorDetails->vendor_join == 2023 ? 'selected' :'' }}>2023</option>
-                                                <option value="2" {{ $vendorDetails->vendor_join == 2024 ? 'selected' :'' }}>2024</option>
-                                                <option value="3" {{ $vendorDetails->vendor_join == 2025 ? 'selected' :'' }}>2025</option>
-                                            </select>
-                                        </div>
+                                        <input type="text" name="vendor_join" class="form-control" value="{{ $vendorDetails->vendor_join }}" />
                                     </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0 center" >Card</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary" style="padding: .375rem 1.75rem .375rem .75rem" >
+                                        <input type="file" name="vendor_card" class="form-control"  id="card"   />
+                                        @error('vendor_card')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror  
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                     <div class="col-sm-3">
+                                         <h6 class="mb-0"> </h6>
+                                     </div>
+                                     <div class="col-sm-9 text-secondary">
+                                          <img id="showcard" src="{{ $vendorDetails->vendor_card }}" alt="Admin" style="width:100px; height: 100px;"  >
+                                     </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0 center" >Commercial Record</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary" style="padding: .375rem 1.75rem .375rem .75rem" >
+                                        <input type="file" name="vendor_record" class="form-control"  id="card"   />
+                                        @error('vendor_record')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror  
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                     <div class="col-sm-3">
+                                         <h6 class="mb-0"> </h6>
+                                     </div>
+                                     <div class="col-sm-9 text-secondary">
+                                          <img id="showcard" src="{{ $vendorDetails->vendor_record }}" alt="Admin" style="width:100px; height: 100px;"  >
+                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Vendor Info</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <textarea class="form-control" name='vendor_info' id="inputAddress4" rows="3" placeholder="vendor  info"></textarea>                                    </div>
+                                        <textarea class="form-control" name='vendor_info' id="inputAddress4" rows="3" placeholder="vendor  info" value="{{ $vendorDetails->vendor_info }}"></textarea>                                    
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3"></div>

@@ -150,7 +150,7 @@
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                         </li> --}}
                                         <li>
-                                            <a href="{{ route('logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>{{ __('frontend/home/header.sign_out') }}</a>
+                                            <a type="submit" href="{{ route('user.logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>{{ __('frontend/home/header.sign_out') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -187,12 +187,12 @@
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
                                     @php
-                                        $categoryLimit = 6; // Define the number of categories to display initially
+                                        $categoryLimit = 5; // Define the number of categories to display initially
                                         $categoriesA = $categories->toArray(); // Convert to a standard PHP array
-                                        $categoriesToDisplay = array_slice($categoriesA, 0, $categoryLimit);
-                                        $categoriesToShowMore = array_slice($categoriesA, $categoryLimit);
+                                        $categoriesToRight = array_slice($categoriesA, 0, $categoryLimit);
+                                        $categoriesToLeft = array_slice($categoriesA, $categoryLimit);
                                     @endphp
-                                    @foreach ($categoriesToDisplay as $cat)
+                                    @foreach ($categoriesToRight as $cat)
                                         <li>
                                             <a href="{{ url('product/category/'.$cat['id'].'/'.$cat['category_slug']) }}">
                                                 <img src="{{ asset($cat['category_image']) }}" alt="" />
@@ -202,7 +202,7 @@
                                     @endforeach
                                 </ul>
                                 <ul class="end">
-                                    @foreach ($categoriesToShowMore as $cat)
+                                    @foreach ($categoriesToLeft as $cat)
                                         <li class="show-more-category">
                                             <a href="{{ url('product/category/'.$cat['id'].'/'.$cat['category_slug']) }}">
                                                 <img src="{{ asset($cat['category_image']) }}" alt="" />
@@ -235,7 +235,7 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="active" href="{{ url('/') }}">{{ __('frontend/home/header.home') }}  </a>
+                                    <a class="active" href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
                                     
                                 </li>
                                 @foreach ($categories as $cat)
@@ -251,7 +251,7 @@
                             
 
 
-                                    <a href="page-contact.html">{{ __('frontend/home/header.contact') }}</a>
+                                    <a href="page-contact.html">Contact</a>
                                 </li>
                             </ul>
                         </nav>

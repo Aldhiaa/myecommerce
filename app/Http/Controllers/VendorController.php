@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class VendorController extends Controller
 {
     public function VendorDashboard(){
@@ -28,7 +28,6 @@ class VendorController extends Controller
         $id =Auth::user()->id;
         $vendorInfo=User::find($id);
         
-
         return view('vendor.profile',compact('vendorInfo'));
     }
 
@@ -39,9 +38,7 @@ class VendorController extends Controller
         $user->email =$request->email;
         $user->phone =$request->phone;
         $user->address =$request->address;
-        $user->vendor_join =$request->vendor_join;
         $user->vendor_info =$request->vendor_info;
-
         $user->save();
         return redirect()->route('vendor.profile')->with('message','data updated Successfully');
     }
@@ -94,23 +91,39 @@ class VendorController extends Controller
         
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'vendor_card' => ['required', 'string'],
             'vendor_record' => ['nullable', 'string'],
             'password' => ['required', 'confirmed']
         ]);
-
-        $user = User::create([
+        if ($request->file('vendor_card')) {
+            $image = $request->file('vendor_card');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            $vendor_card = 'upload/vendor_images/'.$name_gen;   
+        }
+        $data =[
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
-            'vendor_join' => $request->vendor_join,
-            'vendor_card' => $request->vendor_card,
-            'vendor_record' => $request->vendor_record,
+            'vendor_join' => Carbon::now()->format('d F Y'),
+            'vendor_card' => $vendor_card,
             'password' => Hash::make($request->password),
             'role' => 'vendor',
             'status' => 'inactive',
+        ];
+
+        if ($request->file('vendor_record')) {
+            $image = $request->file('vendor_record');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            $vendor_record = 'upload/vendor_images/'.$name_gen;
+            $data['vendor_record'] = $vendor_record; 
+        }
+        $user = User::create([
+            $data
         ]);
 
 

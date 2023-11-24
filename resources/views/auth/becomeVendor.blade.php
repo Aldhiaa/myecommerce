@@ -63,17 +63,6 @@
                                             <div>{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
-                                                <option selected="">{{ __('frontend/becomeVendor.vendor_join') }}</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2025">2025</option>
-                                            </select>
-                                            @error('vendor_join')
-                                            <div>{{ $message }}</div>
-                                            @enderror
-                                        </div>
                                         <div class="form-group" >
                                             <input type="file" id="file_upload_id" style="display:none" name="vendor_card" />
 

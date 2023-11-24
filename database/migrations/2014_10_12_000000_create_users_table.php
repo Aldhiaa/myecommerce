@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('vendor_join')->nullable();
             $table->string('vendor_info')->nullable();
+            $table->string('vendor_card')->nullable();
+            $table->string('vendor_record')->nullable();
             $table->enum('role',['admin','vendor','user'])->default('user');
             $table->enum('status',['active','inactive'])->default('active');
          
