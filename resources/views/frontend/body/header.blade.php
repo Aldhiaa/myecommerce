@@ -212,7 +212,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="more_slide_open" style="display: none">
+                            {{-- <div class="more_slide_open" style="display: none">
                                 <div class="d-flex categori-dropdown-inner">
                                     <ul>
                                         @foreach ($categoriesToShowMore as $cat)
@@ -225,7 +225,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">{{ __("frontend/home/header.show_more") }}</span></div>
                         </div>
                     </div>
