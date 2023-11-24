@@ -183,53 +183,87 @@
                             <span class="fi-rs-apps"></span> {{ __('frontend/home/header.all_categories') }}
                             <i class="fi-rs-angle-down"></i>
                         </a>
-                        <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
-                            <div class="d-flex categori-dropdown-inner">
-                                <ul>
-                                    @php
-                                        $categoryLimit = 5; // Define the number of categories to display initially
-                                        $categoriesA = $categories->toArray(); // Convert to a standard PHP array
-                                        $categoriesB = $categories->toArray(); // Convert to a standard PHP array
-                                        $categoriesToRight = array_slice($categoriesA, 0, $categoryLimit);
-                                        $categoriesToLeft = array_slice($categoriesB, $categoryLimit);
-                                    @endphp
-                                    @foreach ($categoriesToRight as $cat)
-                                        <li>
-                                            <a href="{{ url('product/category/'.$cat['id'].'/'.$cat['category_slug']) }}">
-                                                <img src="{{ asset($cat['category_image']) }}" alt="" />
-                                                {{ $cat['category_name'] }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                <ul class="end">
-                                    @foreach ($categoriesToLeft as $cat)
-                                        <li class="show-more-category">
-                                            <a href="{{ url('product/category/'.$cat['id'].'/'.$cat['category_slug']) }}">
-                                                <img src="{{ asset($cat['category_image']) }}" alt="" />
-                                                {{ $cat['category_name'] }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            {{-- <div class="more_slide_open" style="display: none">
-                                <div class="d-flex categori-dropdown-inner">
-                                    <ul>
-                                        @foreach ($categoriesToShowMore as $cat)
-                                            <li class="show-more-category">
-                                                <a href="{{ url('product/category/'.$cat['id'].'/'.$cat['category_slug']) }}">
-                                                    <img src="{{ asset($cat['category_image']) }}" alt="" />
-                                                    {{ $cat['category_name'] }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div> --}}
-                            <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">{{ __("frontend/home/header.show_more") }}</span></div>
-                        </div>
+                        <?php 
+                         $categories = App\Models\Category::all();
+                         
+                         // Split the categories into chunks
+                         $categoriesChunks = $categories->chunk(1);
+                         
+                         // Initialize variables
+                         $categoriesLeft = collect([]);
+                         $categoriesRight = collect([]);
+                         $categoriesMoreLeft = collect([]);
+                         $categoriesMoreRight = collect([]);
+                         
+                         // Organize the chunks as needed
+                         $alternate = 'left'; // Start with left
+                         foreach ($categoriesChunks as $chunk) {
+                             if ($alternate == 'left' && $categoriesLeft->count() < 5) {
+                                 $categoriesLeft = $categoriesLeft->merge($chunk);
+                                 $alternate = 'right';
+                             } elseif ($alternate == 'right' && $categoriesRight->count() < 5) {
+                                 $categoriesRight = $categoriesRight->merge($chunk);
+                                 $alternate = 'left';
+                             } elseif ($categoriesMoreLeft->count() < 2) {
+                                 $categoriesMoreLeft = $categoriesMoreLeft->merge($chunk);
+                                 $alternate = 'right';
+                             } elseif ($categoriesMoreRight->count() < 2) {
+                                 $categoriesMoreRight = $categoriesMoreRight->merge($chunk);
+                                 $alternate = 'left';
+                             }
+                         }
+                         ?>
+                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading ">
+                             <div class="d-flex categori-dropdown-inner">
+                                 <ul>
+                                     @foreach ($categoriesLeft as $cat)
+                                     <li>
+                                         <a href="{{ url('product/category/'.$cat->id.'/'.$cat['category_slug']) }}">
+                                             <img src="{{ asset($cat['category_image']) }}" alt="" />
+                                             {{ $cat['category_name'] }}
+                                         </a>
+                                     </li>
+                                     @endforeach
+                                 </ul>
+                                 <ul class="end">
+                                     @foreach ($categoriesRight as $cat)
+                                     <li>
+                                         <a href="{{ url('product/category/'.$cat->id.'/'.$cat['category_slug']) }}">
+                                             <img src="{{ asset($cat['category_image']) }}" alt="" />
+                                             {{ $cat['category_name'] }}
+                                         </a>
+                                     </li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                             <div class="more_slide_open" style="display: none">
+                                 <div class="d-flex categori-dropdown-inner">
+                                     <ul>
+                                         @foreach ($categoriesMoreLeft as $cat)
+                                         <li>
+                                             <a href="{{ url('product/category/'.$cat->id.'/'.$cat['category_slug']) }}">
+                                                 <img src="{{ asset($cat['category_image']) }}" alt="" />
+                                                 {{ $cat['category_name'] }}
+                                             </a>
+                                         </li>
+                                         @endforeach
+                                     </ul>
+                                     <ul class="end">
+                                         @foreach ($categoriesMoreRight as $cat)
+                                         <li>
+                                             <a href="{{ url('product/category/'.$cat->id.'/'.$cat['category_slug']) }}">
+                                                 <img src="{{ asset($cat['category_image']) }}" alt="" />
+                                                 {{ $cat['category_name'] }}
+                                             </a>
+                                         </li>
+                                         @endforeach
+                                     </ul>
+                                 </div>
+                             </div>
+                             <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">Show more...</span></div>
+                         </div>
                     </div>
+
                     
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
