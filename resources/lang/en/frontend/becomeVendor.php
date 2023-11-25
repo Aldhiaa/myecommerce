@@ -8,6 +8,7 @@ return [
     'username' => 'Username',
     'email' => 'Email',
     'phone' => 'Phone',
+    'vendor_trade_type' => 'Trade type',
     'vendor_join' => 'Join Year',
     'vendor_card' => 'Enter your card:',
     'vendor_record' => 'Enter your commercial record:',
@@ -15,6 +16,8 @@ return [
     'confirm_password' => 'Confirm password',
     'submit_register' => 'Submit & Register',
     'note' => 'Note:',
+    'agree' => 'I agree to the:',
+    'term_condition' => 'terms and conditions:',
     'note_text' => 'Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy',
 ];
 

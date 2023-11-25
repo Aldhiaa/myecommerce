@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
     .upload-container {
         display: flex;
@@ -15,6 +16,29 @@
         font-size: 50px; /* Adjust the font size as needed */
         margin-top: 10px; /* Adjust the margin as needed */
     }
+    .tacbox {
+      display:block;
+      padding: 1em;
+      margin: 2em;
+      border: 3px solid #ddd;
+      background-color: #eee;
+      max-width: 800px;
+    }
+    
+    input {
+      height: 2em;
+      width: 2em;
+      vertical-align: middle;
+    }
+    /*
+    label {
+      outline: 2px dotted #f00;
+    }
+    
+    /*
+    label:after {
+      content: attr(for);
+    }*/
 </style>
 <main class="main pages">
     <div class="page-header breadcrumb-wrap">
@@ -99,7 +123,12 @@
                                     
                                         <div class="form-group">
                                             <input required="" type="password" name="password_confirmation" placeholder="{{ __('frontend/becomeVendor.confirm_password') }}" />
+                                        </div>                                       
+                                        <div class="tacbox">
+                                            <input type="checkbox" id="acceptTerms" name="accept_terms">
+                                            <label for="acceptTerms" style="margin-left: 8px;"> {{ __('frontend/becomeVendor.agree') }}<a href="{{ route('terms') }}" target="_blank">{{ __('frontend/becomeVendor.term_condition') }}</a></label>
                                         </div>
+                                        
                                         
                                         <div class="form-group mb-30">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="login">{{ __('frontend/becomeVendor.submit_register') }}</button>

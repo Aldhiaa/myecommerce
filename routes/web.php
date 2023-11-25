@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CashpayController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\CashONDeliveryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\AUserController;
@@ -60,6 +61,9 @@ Route::controller(FrontendController::class)->group(function(){
     Route::post('/search' , 'ProductSearch')->name('product.search');
     Route::post('/search-product' , 'SearchProduct'); 
 });
+
+Route::get('/terms', [TermsController::class, 'index'])->name('terms');
+
 Route::controller(CartController::class)->group(function(){
 
     Route::post('/cart/data/store/{id}', 'AddToCart')->name('cart.data.store');

@@ -97,8 +97,13 @@ class VendorController extends Controller
             'vendor_trade_type' => ['required', 'string'],
             'vendor_card' => ['required', 'string'],
             'vendor_record' => ['nullable', 'string'],
-            'password' => ['required', 'confirmed']
+            'password' => ['required', 'confirmed'],
+            'accept_terms' => ['accepted'],
         ]);
+
+        if (!$request->input('accept_terms')) {
+            return back()->with('error', 'Please accept the terms and conditions.');
+        }
         if ($request->file('vendor_card')) {
             $image = $request->file('vendor_card');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -131,6 +136,6 @@ class VendorController extends Controller
 
 
 
-        return redirect()->route('login');
+        return redirect()->route('/')->with('status', 'you will be notify soon if you accept');;
     }
 }
