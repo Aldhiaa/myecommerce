@@ -93,7 +93,7 @@ class VendorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'phone' => ['required', 'number'],
+            'phone' => ['required', 'numeric'],
             'vendor_trade_type' => ['required', 'string'],
             'vendor_card' => ['required', 'string'],
             'vendor_record' => ['nullable', 'string'],
