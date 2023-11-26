@@ -13,7 +13,6 @@ use Spatie\Permission\Models\Permission;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\VendorActive;
 class AdminController extends Controller
 {
     public function AdminDashboard(){
