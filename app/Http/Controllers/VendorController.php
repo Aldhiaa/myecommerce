@@ -131,9 +131,7 @@ class VendorController extends Controller
             $vendor_record = 'upload/vendor_images/'.$name_gen;
             $data['vendor_record'] = $vendor_record; 
         }
-        $user = User::create([
-            $data
-        ]);
+        $user = User::create($data);
 
 
 
