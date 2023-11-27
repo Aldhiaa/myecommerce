@@ -95,7 +95,7 @@ class VendorController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone' => ['required', 'numeric'],
             'vendor_trade_type' => ['required', 'string'],
-            'vendor_card' => ['required', 'string'],
+            'vendor_card' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
             'vendor_record' => ['nullable', 'string'],
             'password' => ['required', 'confirmed'],
             'accept_terms' => ['accepted'],

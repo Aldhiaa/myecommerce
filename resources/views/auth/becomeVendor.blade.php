@@ -61,7 +61,7 @@
                                         <h1 class="mb-5">{{ __('frontend/becomeVendor.create_account') }}</h1>
                                         <p class="mb-30">{{ __('frontend/becomeVendor.already_account') }} <a href="{{ route('login') }}">{{ __('frontend/becomeVendor.login') }}</a></p>
                                     </div>
-                                    <form method="post" action="{{ route('vendor.register') }}">
+                                    <form method="post" action="{{ route('vendor.register') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" required="" name="name" placeholder="{{ __('frontend/becomeVendor.shop_name') }}" />
