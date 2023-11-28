@@ -84,29 +84,27 @@ Route::controller(CartController::class)->group(function(){
 
 
 });
-Route::controller(CheckoutController::class)->group(function(){
-    Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
-    Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
-    Route::post('/checkout/store', 'CheckoutStore')->name('checkout.store');
+Route::middleware(['auth','verified'])->group(function(){
+    Route::controller(CheckoutController::class)->group(function(){
+        Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+        Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+        Route::post('/checkout/store', 'CheckoutStore')->name('checkout.store');
+    });
+    
+    Route::controller(StripeController::class)->group(function(){
+        Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
+    
+    });
+    Route::controller(CashpayController::class)->group(function(){
+        Route::post('/cash/order' , 'cashOrder')->name('cash.order');
+    
+    });
+    Route::controller(CashONDeliveryController::class)->group(function(){
+        Route::post('/cash/on/delivery/order' , 'cashONDELOrder')->name('cash.on.delivery.order');
+    
+    });
+    
 
-
-});
-
-Route::controller(StripeController::class)->group(function(){
-    Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
-
-});
-Route::controller(CashpayController::class)->group(function(){
-    Route::post('/cash/order' , 'cashOrder')->name('cash.order');
-
-});
-Route::controller(CashONDeliveryController::class)->group(function(){
-    Route::post('/cash/on/delivery/order' , 'cashONDELOrder')->name('cash.on.delivery.order');
-
-});
-
-
-Route::middleware(['auth'])->group(function(){
     Route::get('dashboard',[UserController::class, 'UserDashboard'])->name('dashboard');
     Route::post('user/profile/update',[UserController::class, 'profileUpdate'])->name('User.profile.store');
     Route::get('user/logout',[UserController::class, 'Userlogout'])->name('user.logout');

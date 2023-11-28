@@ -147,9 +147,7 @@ class AdminController extends Controller
             $data['vendor_record'] = $vendor_record; 
         }
         $data['status'] ='active';
-        $user =User::findOrFail($vendor_id)->update([
-            $data
-        ]);
+        $user =User::findOrFail($vendor_id)->update($data);
         $email=$request->email;
         $name=$request->name;
 

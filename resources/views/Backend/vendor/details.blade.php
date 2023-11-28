@@ -91,7 +91,7 @@
                                          <h6 class="mb-0"> </h6>
                                      </div>
                                      <div class="col-sm-9 text-secondary">
-                                          <img id="showcard" src="{{ $vendorDetails->vendor_card }}" alt="Admin" style="width:100px; height: 100px;"  >
+                                          <img id="showcard" src="{{ asset($vendorDetails->vendor_card) }}" alt="Admin" style="width:100px; height: 100px;"  >
                                      </div>
                                 </div>
                                 <div class="row mb-3">
@@ -111,7 +111,7 @@
                                          <h6 class="mb-0"> </h6>
                                      </div>
                                      <div class="col-sm-9 text-secondary">
-                                          <img id="showcard" src="{{ $vendorDetails->vendor_record }}" alt="Admin" style="width:100px; height: 100px;"  >
+                                          <img id="showcard" src="{{ asset($vendorDetails->vendor_record) }}" alt="Admin" style="width:100px; height: 100px;"  >
                                      </div>
                                 </div>
                                 <div class="row mb-3">

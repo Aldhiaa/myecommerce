@@ -25,15 +25,27 @@
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" required="" name="name" placeholder="Username" />
+                                            @error('name')
+                                            <div>{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <input type="text" required="" name="email" placeholder="Email" />
+                                            @error('email')
+                                            <div>{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <input required="" type="password" name="password" placeholder="Password" />
+                                            @error('password')
+                                            <div>{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <input required="" type="password" name="password_confirmation" placeholder="Confirm password" />
+                                            @error('password_confirmation')
+                                            <div>{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         
                                         <div class="form-group mb-30">
