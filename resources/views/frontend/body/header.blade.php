@@ -438,10 +438,6 @@
                                 <li><a href="{{ route('setLocale', ['locale' => 'ar']) }}">{{ __('frontend/home/header.arabic') }}</a></li>
                             </ul>
                         </li>
-                    
-                        <div class="menu-item-has-children">
-                            <a href="{{ route('login') }}"><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }} / Sign Up </a>
-                        </div>
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
@@ -451,7 +447,7 @@
                     <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
                 </div>
                 <div class="single-mobile-header-info">
-                    <a href="page-login.html"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                    <a href="href="{{ route('login') }}""><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }}</a>
                 </div>
                 <div class="single-mobile-header-info">
                     <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>

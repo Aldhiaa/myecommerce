@@ -108,7 +108,7 @@ class VendorController extends Controller
         if ($request->file('vendor_card')) {
             $image = $request->file('vendor_card');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            Image::make($image)->save('upload/vendor_images/'.$name_gen);
             $vendor_card = 'upload/vendor_images/'.$name_gen;   
         }
         $data =[
@@ -127,7 +127,7 @@ class VendorController extends Controller
         if ($request->file('vendor_record')) {
             $image = $request->file('vendor_record');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(800,800)->save('upload/vendor_images/'.$name_gen);
+            Image::make($image)->save('upload/vendor_images/'.$name_gen);
             $vendor_record = 'upload/vendor_images/'.$name_gen;
             $data['vendor_record'] = $vendor_record; 
         }

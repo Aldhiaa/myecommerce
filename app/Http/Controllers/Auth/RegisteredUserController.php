@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -15,6 +16,7 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    use RegistersUsers;
     /**
      * Display the registration view.
      */
