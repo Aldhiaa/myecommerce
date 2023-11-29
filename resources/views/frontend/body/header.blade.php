@@ -447,7 +447,7 @@
                     <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
                 </div>
                 <div class="single-mobile-header-info">
-                    <a href="href="{{ route('login') }}""><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }}</a>
+                    <a href="{{ route('login') }}"><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }}</a>
                 </div>
                 <div class="single-mobile-header-info">
                     <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
