@@ -1,6 +1,6 @@
 @foreach ($categories as $cat)
     @php
-        $categoryProducts =App\Models\Products::where('category_id', $cat->id);
+        $categoryProducts =App\Models\Product::where('category_id', $cat->id);
     @endphp
 
     @if ($categoryProducts->isNotEmpty())
