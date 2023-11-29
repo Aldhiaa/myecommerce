@@ -3,7 +3,7 @@
         $categoryProducts =App\Models\Product::where('category_id', $cat->id);
     @endphp
 
-    @if ($categoryProducts->isNotEmpty())
+    @if ($categoryProducts->count() > 0)
     <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
