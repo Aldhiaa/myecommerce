@@ -1,13 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.scrolling-tabs.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/st-demo.css') }}">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
-<script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
-
 
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
@@ -276,10 +266,10 @@
                     </div>
 
                     
-                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
+                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading" style="margin: 0 17px;">
                         <nav>
-                            <ul class="category-list">   
-                                <li>
+                            <ul class="nav nav-tabs" role="tablist">   
+                                <li role="presentation" class="active">
                                     <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
                                     
                                 </li>
@@ -351,8 +341,6 @@
         </div>
     </div>
 </header>
-
-
 
 
 <!-- End Header  -->

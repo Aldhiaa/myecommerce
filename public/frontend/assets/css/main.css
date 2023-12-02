@@ -7260,7 +7260,6 @@ h6.post-title {
 .header-wrap.header-space-between {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
 }
 
 .header-wrap .header-right {
@@ -9013,7 +9012,8 @@ span.fi-rs-apps {
 
 .main-categori-wrap {
     position: relative;
-    margin-right: 35px;
+    width: 148px;
+    max-width: 148px;
 }
 
 .main-categori-wrap>a {
@@ -11462,6 +11462,10 @@ footer .hotline img {
     margin-right: 200px !important;
 }
 
+.scrtabs-tab-container {
+    display: flex;
+}
+
 @media only screen and (max-width: 768px) {
     .totall-product h2 {
         font-size: 28px;
@@ -12043,9 +12047,6 @@ footer .hotline img {
 }
 
 @media only screen and (max-width: 1024px) {
-    .header-style-1 .main-categori-wrap {
-        margin-right: 20px;
-    }
     .product-cart-wrap .product-action-1 a.action-btn {
         width: 34px;
         height: 34px;
@@ -12615,6 +12616,9 @@ footer .hotline img {
         font-size: 35px;
     }
 }
+
+
+/*# sourceMappingURL=main.css.map */
 
 
 /*# sourceMappingURL=main.css.map */

@@ -77,6 +77,17 @@
 
     <script type="text/javascript">
     
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.scrolling-tabs.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/st-demo.css') }}">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
+<script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
+
+
+
     //   $.ajaxSetup({
     //       headers:{
     //         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
