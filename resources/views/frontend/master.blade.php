@@ -14,6 +14,9 @@
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('forntend/assets/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
@@ -83,8 +86,6 @@
 
 <script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
 <script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 <script>
