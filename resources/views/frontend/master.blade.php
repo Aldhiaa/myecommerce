@@ -83,6 +83,8 @@
 
 <script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
 <script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 <script>
