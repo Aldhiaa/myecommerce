@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\att;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontendController;
@@ -377,4 +376,3 @@ Route::controller(RoleController::class)->group(function(){
 
 });
 
-Route::get('/aa',[att::class, 'a']);
