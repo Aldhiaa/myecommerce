@@ -279,7 +279,7 @@
                     
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
-                            <ul class="category-list nav nav-tabs" role="tablist">
+                            {{-- <ul class="category-list nav nav-tabs" role="tablist">
                                 
                                 <li role="presentation" class="active">
                                     <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
@@ -298,7 +298,7 @@
                                 <li>
                                     <a href="page-contact.html">Contact</a>
                                 </li>                               
-                            </ul>
+                            </ul> --}}
                         </nav>
                     </div>
                 </div>
@@ -353,6 +353,111 @@
         </div>
     </div>
 </header>
+
+<ul class="category-list nav nav-tabs" role="tablist">
+                                
+    <li role="presentation" class="active">
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+    <li role="presentation" >
+        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+        
+    </li>                              
+</ul>
+
 
 <!-- End Header  -->
 <style>
