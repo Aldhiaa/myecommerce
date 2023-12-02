@@ -27,6 +27,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 <body>
     <!-- Modal -->

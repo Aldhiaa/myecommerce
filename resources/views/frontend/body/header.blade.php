@@ -1,27 +1,15 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<style>
-    .category-list {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-}
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.scrolling-tabs.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/st-demo.css') }}">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-.category-list li {
-    list-style: none;
-    display: inline-block;
-    margin-right: 10px; /* Adjust the spacing between categories */
-}
+<script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
+<script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
 
-.arrow {
-    cursor: pointer;
-}
 
-/* Hide arrows initially */
-.left-arrow, .right-arrow {
-    display: none;
-}
 
-</style>
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
         <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
@@ -291,14 +279,14 @@
                     
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
-                            <ul class="category-list">
+                            <ul class="category-list nav nav-tabs" role="tablist">
                                 
-                                <li>
-                                    <a class="active" href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
+                                <li role="presentation" class="active">
+                                    <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
                                     
                                 </li>
                                 @foreach ($categories as $cat)
-                                <li>
+                                <li role="presentation">
                                     <a href="{{ url('product/category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }} <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         @foreach ($cat->subcategories as $subcategory)
@@ -309,10 +297,7 @@
                                 @endforeach
                                 <li>
                                     <a href="page-contact.html">Contact</a>
-                                </li>
-                                <li class="arrow left-arrow"><a href="#"><i class="fi-rs-angle-left"></i></a></li>
-                                <!-- Right arrow -->
-                                <li class="arrow right-arrow"><a href="#"><i class="fi-rs-angle-right"></i></a></li>
+                                </li>                               
                             </ul>
                         </nav>
                     </div>
@@ -465,34 +450,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        var container = $('.category-list');
-        var arrowLeft = $('.left-arrow');
-        var arrowRight = $('.right-arrow');
-    
-        // Calculate the total width of the category list
-        var totalWidth = 0;
-        $('.category-list li').each(function () {
-            totalWidth += $(this).outerWidth(true);
-        });
-    
-        // Show/hide arrows based on container width
-        if (totalWidth > container.width()) {
-            arrowLeft.show();
-    
-            // Handle left arrow click
-            arrowLeft.click(function () {
-                container.animate({ scrollLeft: '-=200' }, 'fast');
-            });
-    
-            // Handle right arrow click
-            arrowRight.click(function () {
-                container.animate({ scrollLeft: '+=200' }, 'fast');
-            });
-        } else {
-            arrowRight.hide();
-        }
-    });
-    </script>
-    
