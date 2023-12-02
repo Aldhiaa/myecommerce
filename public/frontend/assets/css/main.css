@@ -240,7 +240,9 @@ li.hr span {
 .hidden {
     display: none;
 }
-
+.fade{
+    opacity: 1;
+}
 .clear {
     clear: both;
 }
