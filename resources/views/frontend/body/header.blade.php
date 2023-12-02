@@ -1,13 +1,12 @@
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.scrolling-tabs.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/st-demo.css') }}">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <script src="{{ asset('frontend/assets/css/jquery.scrolling-tabs.js') }}"></script>
 <script src="{{ asset('frontend/assets/css/st-demo.js') }}"></script>
-
 
 
 <header class="header-area header-style-1 header-height-2">
@@ -438,7 +437,6 @@
     </li>                              
     <li role="presentation" >
         <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
     </li>                              
     <li role="presentation" >
         <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
