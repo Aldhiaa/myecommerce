@@ -1,4 +1,4 @@
-{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.scrolling-tabs.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/st-demo.css') }}">
@@ -278,14 +278,13 @@
                     
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
-                            {{-- <ul class="category-list nav nav-tabs" role="tablist">
-                                
-                                <li role="presentation" class="active">
+                            <ul class="category-list">   
+                                <li>
                                     <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
                                     
                                 </li>
                                 @foreach ($categories as $cat)
-                                <li role="presentation">
+                                <li>
                                     <a href="{{ url('product/category/'.$cat->id.'/'.$cat->category_slug) }}">{{ $cat->category_name }} <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         @foreach ($cat->subcategories as $subcategory)
@@ -297,7 +296,7 @@
                                 <li>
                                     <a href="page-contact.html">Contact</a>
                                 </li>                               
-                            </ul> --}}
+                            </ul>
                         </nav>
                     </div>
                 </div>
@@ -353,108 +352,7 @@
     </div>
 </header>
 
-<ul class="category-list nav nav-tabs" role="tablist">
-                                
-    <li role="presentation" class="active">
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-    <li role="presentation" >
-        <a  href="{{ url('/') }}">{{ __("frontend/home/header.home") }}  </a>
-        
-    </li>                              
-</ul>
+
 
 
 <!-- End Header  -->
