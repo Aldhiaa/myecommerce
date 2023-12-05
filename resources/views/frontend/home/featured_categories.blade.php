@@ -5,7 +5,6 @@
                 <h3>{{ __('frontend/home.featured_categories.title') }}</h3>
                
             </div>
-            <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
         </div>
         <div class="carausel-10-columns-cover position-relative">
             <div class="carausel-10-columns" id="carausel-10-columns">
@@ -20,6 +19,10 @@
                 @endforeach
 
             </div>
+        </div>
+        <div class="section-title">
+
+            <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
         </div>
     </div>
 </section>

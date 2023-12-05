@@ -268,7 +268,10 @@ li.hr span {
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #BCE3C9;
-    width: 60%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg-img {
@@ -1975,10 +1978,11 @@ input.qty-val {
 }
 
 .hero-slider-1 .single-hero-slider {
-    height: 538px;
-    border-radius: 30px;
+    height: 340px;
+    border-radius: 4px !important;
     background-size: cover;
     background-position: center center;
+    width: 90%;
 }
 
 .hero-slider-1 .single-hero-slider.rectangle {
@@ -1999,8 +2003,8 @@ input.qty-val {
 }
 
 .hero-slider-1 img {
-    max-height: 538px;
-    border-radius: 30px;
+    max-height: 340px;
+    border-radius: 4px;
 }
 
 .hero-slider-1 .slider-content {
@@ -2068,9 +2072,9 @@ input.qty-val {
     border-radius: 10px;
 }
 
-.hero-slider-1.style-5 .single-hero-slider {
+/* .hero-slider-1.style-5 .single-hero-slider {
     border-radius: 10px;
-}
+} */
 
 .dot-style-1 ul {
     display: -webkit-box;
@@ -2143,7 +2147,9 @@ input.qty-val {
     width: 45px;
     height: 45px;
     position: absolute;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
     border-radius: 50%;
     -webkit-transition: all .2s ease-out;
@@ -2188,7 +2194,6 @@ input.qty-val {
     display: -ms-flexbox;
     display: flex;
     position: relative;
-    max-width: 200px;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
@@ -4164,6 +4169,9 @@ table .product-thumbnail img {
     position: relative;
     display: inline-block;
     border-right: 1px solid #BCE3C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-cart-wrap .product-action-1 button:last-child,
@@ -7257,6 +7265,7 @@ h6.post-title {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 100%;
 }
 
 .header-wrap.header-space-between {
@@ -12023,7 +12032,7 @@ footer .hotline img {
         max-width: 94%;
     }
     .hero-slider-1 .single-hero-slider {
-        height: 467px;
+        height: 340px;
     }
     .display-2 {
         font-size: 64px;

@@ -174,10 +174,10 @@ $setting =App\Models\SiteSetting::find(1);
             </div>
             <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
                  
-                <div class="hotline d-lg-inline-flex">
+                {{-- <div class="hotline d-lg-inline-flex">
                     <img src="assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
                     <p>{{ $setting->support_phone ?? 'N/A' }}<span> {{ __('frontend/home/header.support_center') }}</span></p>
-                </div>
+                </div> --}}
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">

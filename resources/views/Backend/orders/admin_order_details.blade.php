@@ -228,19 +228,11 @@
                             </tbody>
                         </table>
                         
-                    </div>
-                        
-                        
-                        
+                    </div>                       
                 </div>
             </div>
 
         </div>
-
-
-
-
-
     </div>
 </div> 
 <!--end page wrapper -->        

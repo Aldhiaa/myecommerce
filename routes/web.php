@@ -12,6 +12,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CashpayController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\CashONDeliveryController;
+use App\Http\Controllers\Backend\AdminShowOrderController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\AUserController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -142,6 +143,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::post('vendor/inactive/approve',[AdminController::class, 'Vendorinactiveapprove'])->name('inactive.vendor.approve');
 
+
+
+    Route::get('vendor/orders/detail/{id}',[AdminShowOrderController::class, 'showVendorDetails'])->name('vendor.orders.detail');
+
 });
 
 Route::get('admin/login',[AdminController::class, 'Adminlogin'])->name('admin.login');
@@ -187,7 +192,7 @@ Route::middleware(['auth','role:vendor'])->group(function(){
         Route::put('/mark-all-notifications-as-read','markAllAsRead')->name('markAllNotificationsAsRead');  
     });
 
-});
+})->middleware(['auth', 'verified']);
 Route::middleware(['auth','role:admin'])->group(function(){
 
 Route::controller(BrandController::class)->group(function(){
@@ -374,5 +379,5 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/store/notification' , 'sendMessage')->name('store.notification');
 });
 
-});
+})->middleware(['auth', 'verified']);
 

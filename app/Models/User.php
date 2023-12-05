@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use DB;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable,HasRoles;
 
@@ -69,5 +69,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function product()
     {
         return $this->hasMany(Product::class, 'vendor_id');
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class, 'id');
+    }
+    public function orderItem()
+    {
+        return $this->hasMany(Product::class, 'id');
     }
 }

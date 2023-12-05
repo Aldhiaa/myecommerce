@@ -17,7 +17,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="" class="btn btn-primary">add Vendor</a>
+                    {{-- <a href="" class="btn btn-primary">add Vendor</a> --}}
                 </div>
             </div>
         </div>
@@ -32,8 +32,9 @@
                                 <th>SI</th>
                                 <th>Shop name</th>
                                 <th>Vendor username</th>
-                                <th>join date</th>
                                 <th>vendor email</th>
+                                <th>join date</th>
+                                <th>Orders</th>
                                 <th>Status</th>
                                 <th>action</th>
                             </tr>
@@ -46,6 +47,7 @@
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->vendor_join }}</td>
+                                <td><a href="{{ route('vendor.orders.detail',$item->id) }} "class="btn btn-primary" >{{ $item->orderitem->count() }}</a></td>
                                 <td><span class="btn btn-secondary" >{{ $item->status }}</span> </td>
                                 <td><a href="{{ route('active.vendor.details',$item->id) }}" class="btn btn-secondary">Vendor Details</a></td>
                             </tr> 
@@ -56,8 +58,9 @@
                                 <th>SI</th>
                                 <th>Shop name</th>
                                 <th>Vendor username</th>
-                                <th>join date</th>
                                 <th>vendor email</th>
+                                <th>join date</th>
+                                <th>Orders</th>
                                 <th>Status</th>
                                 <th>action</th>
                             </tr>

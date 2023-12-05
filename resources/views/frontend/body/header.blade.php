@@ -151,7 +151,7 @@
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                         </li> --}}
                                         <li>
-                                            <a type="submit" href="{{ route('user.logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>{{ __('frontend/home/header.sign_out') }}</a>
+                                            <a type="submit" href="{{ route('logout') }}"><i class="fi fi-rs-sign-out mr-10"></i>{{ __('frontend/home/header.sign_out') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -291,11 +291,11 @@
                     </div>
                 </div>
 
-
+{{-- 
                 <div class="hotline d-none d-lg-flex">
                     <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg') }}" alt="hotline" />
                     <p>{{ $setting->support_phone ?? 'N/A' }}<span> {{ __('frontend/home/header.support_center') }}</span></p>
-                </div>
+                </div> --}}
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">
                         <span class="burger-icon-top"></span>

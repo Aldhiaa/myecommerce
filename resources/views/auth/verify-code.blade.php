@@ -14,35 +14,37 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                     <div class="row">
-                        <div class="col-lg-6 pr-30 d-none d-lg-block">
-                            <img class="border-radius-15" src="assets/imgs/page/login-1.png" alt="" />
-                        </div>
                         <div class="col-lg-6 col-md-8">
                             <div class="login_wrap widget-taber-content background-white">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
-                                        <h1 class="mb-5">Login</h1>
-                                        <p class="mb-30">Don't have an account? <a href="page-register.html">Create here</a></p>
+                                        <h1 class="mb-5">Verfiy the Account</h1>
                                     </div>
-                                    <form method="post">
+                                    <form method="post" action="{{ route('verify.code') }}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="Password *" />
+                                            <input id="verification_code" type="text" class="form-control @error('verification_code') is-invalid @enderror" name="verification_code" required>
+                                            @error('verification_code')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="Confirm you password *" />
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-heading btn-block hover-up" name="login">Reset password</button>
+
+                                        
+                                        <div class="form-group mb-30">
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="login">Submit &amp; Register</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6 pr-30 d-none d-lg-block">                          
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main>   
+</main> 
 @endsection
