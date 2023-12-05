@@ -6,7 +6,7 @@
 
 .nav-tabs,
 .tab-content {
-    display: none;
+    display: block;
 }
 
 .st-demo-header {
