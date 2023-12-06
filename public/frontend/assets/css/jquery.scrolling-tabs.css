@@ -18,11 +18,11 @@
     clear: left;
 }
 
-.scrtabs-tabs-fixed-container {
+.scrtabs-tabs-fixed-container:first-child {
     float: left;
     height: 42px;
     overflow: hidden;
-    width: 100%;
+    width: 80% !important;
 }
 
 .scrtabs-allow-scrollbar .scrtabs-tabs-fixed-container {

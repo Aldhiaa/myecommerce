@@ -266,7 +266,7 @@
                     </div>
 
                     
-                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading" style="margin: 0 17px;">
+                    <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading w-100" style="margin: 0 17px;">
                         <nav>
                             <ul class="nav nav-tabs" role="tablist">   
                                 <li role="presentation" class="active">
