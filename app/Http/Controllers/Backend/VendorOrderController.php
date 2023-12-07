@@ -12,11 +12,29 @@ use Carbon\Carbon;
 use Auth;
 class VendorOrderController extends Controller
 {
-    public function VendorOrder(){
+    public function VendorpendingOrder(){
 
         $id = Auth::user()->id;
-        $orderitem = Order_item::with('order')->where('vendor_id',$id)->orderBy('id','DESC')->get();
+        $orderitem = Order_item::with(['order' => function ($query) {
+            $query->where('status', 'pending');
+        }])
+            ->where('vendor_id', $id)
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('vendor.Backend.orders.pending_orders',compact('orderitem'));
+    } // End Method 
+
+    public function VendorsuccessOrder(){
+
+        $id = Auth::user()->id;
+        $orderitem = Order_item::with('order')
+        ->whereHas('order', function ($query) {
+            $query->where('status', 'pending');
+        })
+        ->where('vendor_id', $id)
+        ->orderBy('id', 'DESC')
+        ->get();
+        return view('vendor.Backend.orders.success_orders',compact('orderitem'));
     } // End Method 
 
 }

@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('cancel_date')->nullable();
             $table->string('return_date')->nullable();
             $table->string('return_reason')->nullable();
-            $table->string('status'); 
+            $table->enum('status',['cancelled','pending','successed','confirmed','deliverd']); 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

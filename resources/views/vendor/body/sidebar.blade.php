@@ -44,7 +44,9 @@ $status =$venderid->status;
                 <div class="menu-title">All Orders</div>
             </a>
             <ul>
-                <li> <a href="{{ route('vendor.order') }}"><i class="bx bx-right-arrow-alt"></i>All Orders</a>
+                <li> <a href="{{ route('vendor.pending.order') }}"><i class="bx bx-right-arrow-alt"></i>All pending Orders</a>
+                </li>
+                <li> <a href="{{ route('vendor.success.order') }}"><i class="bx bx-right-arrow-alt"></i>All Success Orders</a>
                 </li>
               
             </ul>

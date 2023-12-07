@@ -48,7 +48,7 @@ class VendorProductController extends Controller
               'multi_img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for multiple image uploads              
               'selling_price' => 'numeric|nullable',
               'discount_price' => 'numeric|nullable',
-         
+              'city' => 'string|nullable',
               'product_qty' => 'integer|nullable',
               'brand_id' => 'integer|nullable',
               'category_id' => 'integer|nullable',
@@ -72,7 +72,8 @@ class VendorProductController extends Controller
               'subcategory_id' => $request->subcategory_id,
               'product_name' => $request->product_name,
               'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
-  
+              'city' => $request->city,
+
               'product_code' => 'PRD-' . Str::random(6),
               'product_qty' => $request->product_qty,
               'product_tags' => $request->product_tags,
@@ -136,7 +137,7 @@ class VendorProductController extends Controller
               'product_color' => 'string|nullable',
               'short_describtion' => 'string',
               'long_describtion' => 'string',
-     
+              'city' => 'string|nullable',
               'selling_price' => 'numeric|nullable',
               'discount_price' => 'numeric|nullable',
          
@@ -190,7 +191,8 @@ class VendorProductController extends Controller
               'product_tags' => $request->product_tags,
               'product_size' => $request->product_size,
               'product_color' => $request->product_color,
-  
+              'city' => $request->city,
+
               'selling_price' => $request->selling_price,
               'discount_price' => $request->discount_price,
               'short_describtion' => $request->short_describtion,

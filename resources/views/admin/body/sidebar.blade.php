@@ -221,6 +221,17 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-line-chart"></i>
+                </div>
+                <div class="menu-title">Term & Conditions</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('add.terms.and.conditioins') }}"><i class="bx bx-right-arrow-alt"></i>Add terms and Conditions</a>
+                </li>
+            </ul>
+        </li>
         
     </ul>
     <!--end navigation-->

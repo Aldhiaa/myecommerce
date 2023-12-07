@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 
 class KuraimiBankController extends Controller
 {
-    public function StripeOrder(Request $request){       
+    public function KuraimiOrder(Request $request){       
         if(Session::has('coupon')){
             $total_amount = Session::get('coupon')['total_amount'];
         }else{

@@ -37,10 +37,9 @@ class ProductController extends Controller
             'long_describtion' => 'string|nullable',
             'product_thambnail' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for an image upload
             'multi_img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for multiple image uploads
-            
+            'city' => 'string|nullable',
             'selling_price' => 'numeric|nullable',
-            'discount_price' => 'numeric|nullable',
-     
+            'discount_price' => 'numeric|nullable',  
             'product_qty' => 'integer|nullable',
             'brand_id' => 'integer|nullable',
             'category_id' => 'integer|nullable',
@@ -63,6 +62,7 @@ class ProductController extends Controller
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
+            'city' => $request->city,
             'product_name' => $request->product_name,
             'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
 
@@ -130,7 +130,8 @@ class ProductController extends Controller
               'product_color' => 'string|nullable',
               'short_describtion' => 'string',
               'long_describtion' => 'string',
-     
+              'city' => 'string|nullable',
+
               'selling_price' => 'numeric|nullable',
               'discount_price' => 'numeric|nullable',
        
@@ -181,7 +182,8 @@ class ProductController extends Controller
               'subcategory_id' => $request->subcategory_id,
               'product_name' => $request->product_name,
               'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
-  
+              'city' => $request->city,
+
             
               'product_qty' => $request->product_qty,
               'product_tags' => $request->product_tags,

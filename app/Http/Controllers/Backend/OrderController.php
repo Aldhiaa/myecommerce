@@ -54,6 +54,24 @@ class OrderController extends Controller
         return $pdf->download('invoice.pdf');
 
     }// End Method 
+ 
+    public function AdminConfirmOrder($order_id){
+
+        $order = Order::where('id',$order_id)->first();
+        $orderItem = Order_item::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+        $order->update(['status' => 'confirmed']);
+
+        return redirect()->route('report.view');  
+    }// End Method 
+
+    public function AdminCancellOrder($order_id){
+
+        $order = Order::where('id',$order_id)->first();
+        $orderItem = Order_item::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+        $order->update(['status' => 'cancelled']);
+
+        return redirect()->route('report.view');  
+    }// End Method 
 
 
 }

@@ -184,7 +184,8 @@ Route::middleware(['auth','role:vendor'])->group(function(){
     });
 
     Route::controller(VendorOrderController::class)->group(function(){
-        Route::get('/vendor/order' , 'VendorOrder')->name('vendor.order');
+        Route::get('/vendor/pending/order' , 'VendorpendingOrder')->name('vendor.pending.order');
+        Route::get('/vendor/success/order' , 'VendorsuccessOrder')->name('vendor.success.order');
     
     
     });
@@ -281,6 +282,9 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/admin/processing/order' , 'AdminProcessingOrder')->name('admin.processing.order');
     Route::get('/admin/delivered/order' , 'AdminDeliveredOrder')->name('admin.delivered.order');
     Route::get('/admin/invoice/download/{order_id}' , 'AdminInvoiceDownload')->name('admin.invoice.download');
+
+    Route::get('/admin/confirm/order/{order_id}','AdminConfirmOrder')->name('admin.confirm.order');
+    Route::get('/admin/cancel/order/{order_id}','AdminCancellOrder')->name('admin.cancel.order');
 
 });
  // Shipping Division All Route 
@@ -379,5 +383,7 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/store/notification' , 'sendMessage')->name('store.notification');
 });
 
+Route::get('/add/terms/and/conditioins', [TermsController::class, 'add'])->name('add.terms.and.conditioins');
+Route::post('/store/terms/and/conditioins', [TermsController::class, 'store'])->name('add.terms.store');
 })->middleware(['auth', 'verified']);
 

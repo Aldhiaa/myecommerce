@@ -35,6 +35,10 @@
                                <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Enter product name">
                              </div>
                              <div class="mb-3">
+                              <label for="inputProductTitle" class="form-label">City</label>
+                              <input type="text" name="city" class="form-control" id="city" placeholder="Enter city of the product ">
+                            </div>
+                             <div class="mb-3">
                                <label for="inputProductTitle" class="form-label">Product Tag</label>
                                <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput" value="New Product,Top Product,Net">
                              </div>
