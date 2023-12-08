@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('product_color')->nullable();
             $table->integer('selling_price');
             $table->integer('discount_price')->nullable();
-            $table->text('long_describtion');
-            $table->text('short_describtion');
+            $table->text('long_describtion')->nullable();
+            $table->text('short_describtion')->nullable();
             $table->string('product_thambnail');
             $table->unsignedBigInteger('vendor_id');
             $table->integer('hot_deals')->nullable();

@@ -12,9 +12,7 @@ use Illuminate\View\View;
 use App\Models\SiteSetting;
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
+    
     public function create(): View
     {
         $setting = SiteSetting::find(1);

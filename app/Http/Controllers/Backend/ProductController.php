@@ -128,8 +128,8 @@ class ProductController extends Controller
               'product_tags' => 'string|nullable',
               'product_size' => 'string|nullable',
               'product_color' => 'string|nullable',
-              'short_describtion' => 'string',
-              'long_describtion' => 'string',
+              'short_describtion' => 'string|nullable',
+              'long_describtion' => 'string|nullable',
               'city' => 'string|nullable',
 
               'selling_price' => 'numeric|nullable',

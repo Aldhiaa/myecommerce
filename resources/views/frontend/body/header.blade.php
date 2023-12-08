@@ -417,14 +417,14 @@
                 <!-- mobile menu end -->
             </div>
             <div class="mobile-header-info-wrap">
-                <div class="single-mobile-header-info">
+                {{-- <div class="single-mobile-header-info">
                     <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
-                </div>
+                </div> --}}
                 <div class="single-mobile-header-info">
                     <a href="{{ route('login') }}"><i class="fi-rs-user"></i>{{ __('frontend/home/header.login') }}</a>
                 </div>
                 <div class="single-mobile-header-info">
-                    <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
+                    <a href="#"><i class="fi-rs-headphones"></i>{{ $setting->support_phone ?? 'N/A' }} </a>
                 </div>
             </div>
             <div class="mobile-social-icon mb-50">

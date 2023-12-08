@@ -34,12 +34,31 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $verification_code = rand(100000, 999999);
-        $request->validate([
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
+        ];
+        
+        // Custom validation error messages
+        $messages = [
+            'name.required' => 'The name field is required.',
+            'name.string' => 'The name must be a string.',
+            'name.max' => 'The name must not exceed :max characters.',
+            
+            'email.required' => 'The email field is required.',
+            'email.string' => 'The email must be a string.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.max' => 'The email must not exceed :max characters.',
+            'email.unique' => 'The email has already been taken.',
+            
+            'password.required' => 'The password field is required.',
+            'password.confirmed' => 'The password confirmation does not match.',
+            // Add more messages for password rules if needed
+        ];
+        
+        // Use the $rules and $messages in your validation logic
+        $request->validate($rules, $messages);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
