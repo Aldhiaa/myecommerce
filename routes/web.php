@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\AdminNotificationController;
+use App\Http\Controllers\Backend\DeliverCityFee;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -391,6 +392,10 @@ Route::controller(RoleController::class)->group(function(){
 
     Route::get('/ceate/notification' , 'createnotifi')->name('ceate.notification');
     Route::post('/store/notification' , 'sendMessage')->name('store.notification');
+});
+   Route::controller(DeliverCityFee::class)->group(function(){
+    Route::get('/delivery/city/fee' , 'createcityfee')->name('delivery.city.fee');
+    Route::post('/store/delivery/city/fee' , 'createcityfee')->name('store.delivery.city.fee');
 });
 
 Route::get('/add/terms/and/conditioins', [TermsController::class, 'add'])->name('add.terms.and.conditioins');

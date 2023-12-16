@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Mail\OrderMail;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\Order_item; 
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
@@ -16,14 +17,23 @@ class KuraimiBankController extends Controller
 {
     public function verify_customer(Request $request){
         $phoneNumber = $request->input('phone_number');
-        $data =Session::get('checkout_data');
-        $custphoneNumber =$data['shipping_phone'];
+
+        $userPhone =User::where('phone',$phoneNumber);
+        if ($userPhone) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Customer phone verified successfully.',       
+            ]);
+        } else {
+            return response()->json([
+                'error' => true,
+                'message' => 'Customer phone not  verified .',       
+            ]);
+        }
+        
 
         
-        return response()->json([
-            'success' => true,
-            'message' => 'Customer phone verified successfully.',       
-        ]);
+        
 
     }
     public function kurimiOrder(Request $request){

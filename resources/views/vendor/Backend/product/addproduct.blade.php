@@ -36,6 +36,19 @@
                                <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Enter product name">
                              </div>
                              <div class="mb-3">
+                              <label for="inputProductTitle" class="form-label">City</label>
+                              <?php 
+                              $divisions =App\Models\ShipDivision::all();
+                              ?>
+                              <select name="city" class="form-select" id="city">
+                                <option>select city of the product </option>
+                                @foreach ($divisions as $division)
+                                <option value="{{ $division->id }}">{{ $division->division_name }}</option>
+                                @endforeach
+                               </select>
+
+                            </div>
+                             <div class="mb-3">
                                <label for="inputProductTitle" class="form-label">Product Tag</label>
                                <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput" value="New Product,Top Product,Net">
                              </div>
@@ -98,7 +111,7 @@
                              @foreach ($categories as $cat)
                              <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
                              @endforeach
-                             </select>
+                            </select>
                            </div>
                            <div class="col-12">
                            <label for="inputCollection" class="form-label">Product SubCategory</label>
@@ -109,7 +122,6 @@
                              @endforeach
                              </select>
                            </div>
-     
                            <div class="col-12">
                              <div class="row ">
                                <div class="col-md-6">

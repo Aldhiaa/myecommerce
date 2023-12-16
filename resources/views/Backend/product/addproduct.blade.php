@@ -36,7 +36,16 @@
                              </div>
                              <div class="mb-3">
                               <label for="inputProductTitle" class="form-label">City</label>
-                              <input type="text" name="city" class="form-control" id="city" placeholder="Enter city of the product ">
+                              <?php 
+                              $divisions =App\Models\ShipDivision::all();
+                              ?>
+                              <select name="city" class="form-select" id="city">
+                                <option>select city of the product </option>
+                                @foreach ($divisions as $division)
+                                <option value="{{ $division->id }}">{{ $division->division_name }}</option>
+                                @endforeach
+                               </select>
+
                             </div>
                              <div class="mb-3">
                                <label for="inputProductTitle" class="form-label">Product Tag</label>
@@ -63,7 +72,7 @@
                              <input name="product_thambnail" class="form-control" type="file" id="formFile">                
                              </div>
                              <div class="mb-3">
-                             <label for="inputProductDescription" class="form-label">Multiple Image</label>
+                             <label  class="form-label">Multiple Image</label>
                              <input name="multi_img[]" class="form-control" type="file" id="formFile" multiple>                
                              </div>
                            </div>

@@ -153,7 +153,7 @@ $setting =App\Models\SiteSetting::find(1);
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
                     <h4 class="widget-title">Popular</h4>
                     @php
-                        $categories =App\Models\Category::all();
+                        $categories =App\Models\Category::limit(7)->get();
                     @endphp
                     <ul class="footer-list mb-sm-5 mb-md-0">
                         @foreach ($categories as $cat)

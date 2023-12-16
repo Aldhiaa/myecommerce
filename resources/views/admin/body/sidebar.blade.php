@@ -232,6 +232,17 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-line-chart"></i>
+                </div>
+                <div class="menu-title">delivery Fees</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('delivery.city.fee') }}"><i class="bx bx-right-arrow-alt"></i>Fees for delivering the order to the city</a>
+                </li>
+            </ul>
+        </li>
         
     </ul>
     <!--end navigation-->

@@ -35,8 +35,8 @@ class ProductController extends Controller
             'product_color' => 'string|nullable',
             'short_describtion' => 'string|nullable',
             'long_describtion' => 'string|nullable',
-            'product_thambnail' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for an image upload
-            'multi_img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for multiple image uploads
+            'product_thambnail' => 'image|mimes:jpeg,png,jpg,gif', 
+            'multi_img.*' => 'image', //
             'city' => 'string|nullable',
             'selling_price' => 'numeric|nullable',
             'discount_price' => 'numeric|nullable',  
