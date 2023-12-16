@@ -14,68 +14,68 @@ use Illuminate\Support\Facades\Mail;
 
 class KuraimiBankController extends Controller
 {
-    public function KuraimiOrder(Request $request){       
+    public function verify_customer(Request $request){
+        $phoneNumber = $request->input('phone_number');
+        $data =Session::get('checkout_data');
+        $custphoneNumber =$data['shipping_phone'];
+
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Customer phone verified successfully.',       
+        ]);
+
+    }
+    public function kurimiOrder(Request $request){
+        $user_id = Auth::id();      
         if(Session::has('coupon')){
             $total_amount = Session::get('coupon')['total_amount'];
         }else{
             $total_amount = round(Cart::total());
         }
-        // Set the endpoint URL provided by the supplier
-        $endpointUrl = 'https://12.33.XXX.XXX:443/webapi/xyz';
-        
-        // Set the authentication credentials
+        $baseUrl = 'https://web.krmbank.net.ye:44746/alk-paymentsexp/v1/PHEPaymentAPI/EPayment/SendPayment';
         $username = 'Supplier2021';
         $password = 'Admin123';
-        
-        // Set the customer details
-        $customerID = '85547';
-        $mobileNo = '1234565';
-        $email = 'customer@gmail.com';
-        $customerZone = 'YE0012004';
-        
-        // Build the request payload
+        $authHeader = base64_encode($username . ':' . $password);
+    
+        // Set the request data
         $data = [
-            'SCustID' => $customerID,
-            'MobileNo' => $mobileNo,
-            'Email' => $email,
-            'CustomerZone' => $customerZone,
+            "SCustID "=> '100'.$user_id ,
+            "REFNO"=> "123456",
+            "AMOUNT"=> '10000',
+            "CRCY"=>"YER" ,
+            "MRCHNTNAME"=> "Merchant 1",
+            "PINPASS"=> "MTIzNA=="
         ];
         
-        // Send the request
-        $response = Http::withBasicAuth($username, $password)
-            ->post($endpointUrl, $data);
+        // Send the POST request with authentication
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic '.$authHeader,
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ])
+        ->post($baseUrl, $data);
         
         // Check the response status
         if ($response->successful()) {
-            // Request succeeded, handle the response data
-            $responseData = $response->json();
-            // Process the response data as needed
-            // ...
+            $response = $response->json();
+            dd($response);
+          
         } else {
-            // Request failed, handle the error
-            $errorCode = $response->status();
             $errorMessage = $response->body();
-            // Handle the error based on the provided information
-            // ...
+            dd($errorMessage);
         }
 
 
 
        
 
-        $charge = Charge::create([
-          'amount' => $total_amount*100,
-          'currency' => 'usd',
-          'description' => 'Easy Mulit Vendor Shop',
-          'source' => $token,
-          'metadata' => ['order_id' => 'ordS' . substr(uniqid(), 0, 8)]
-        ]);
+        
 
         
         
         $data = Session::get('checkout_data');
         dd($data);
-        dd($charge);
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'division_id' => $data['division_id'],
@@ -88,12 +88,12 @@ class KuraimiBankController extends Controller
             'post_code' => $data['post_code'],
             'notes' => $data['notes'],
 
-            'payment_type' => $charge->payment_method,
-            'payment_method' => 'Stripe',
-            'transaction_id' => $charge->balance_transaction,
-            'currency' => $charge->currency,
-            'amount' => $total_amount,
-            'order_number' => $charge->metadata->order_id,
+            // 'payment_type' => $charge->payment_method,
+            // 'payment_method' => 'Stripe',
+            // 'transaction_id' => $charge->balance_transaction,
+            // 'currency' => $charge->currency,
+            // 'amount' => $total_amount,
+            // 'order_number' => $charge->metadata->order_id,
 
             'invoice_no' => 'EOS'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
@@ -176,6 +176,8 @@ class KuraimiBankController extends Controller
 //     $statusCode = $response->status();
 //     $errorMessage = $response->body();
 // }
+
+    
 }
 
 

@@ -89,12 +89,7 @@
 
 
 <script>
-    //    $.ajaxSetup({
-    //       headers:{
-    //         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-    //       }
-    //   })
-      /// Start product view with Modal 
+    
       function productview(id) {
         $.ajax({
           type:'GET',

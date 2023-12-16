@@ -218,26 +218,31 @@
                     <div class="payment_option">
                         <div class="custome-radio">
             
-                            <input class="form-check-input"  type="radio" name="payment_option" value="stripe" id="exampleRadios3" checked="">
+                            <input class="form-check-input"  type="radio" name="payment_option" value="stripe" id="exampleRadios1" checked="">
             
-                            <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Stripe</label>
+                            <label class="form-check-label" for="exampleRadios1" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Stripe</label>
                         </div>
                         <div class="custome-radio">
             
-                            <input class="form-check-input"  type="radio" name="payment_option" value="kuraimi" id="exampleRadios3" checked="">
+                            <input class="form-check-input"  type="radio" name="payment_option" value="kurimi" id="exampleRadios2" checked="">
             
-                            <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Kuraimi</label>
+                            <label class="form-check-label" for="exampleRadios2" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Kuraimi</label>
                         </div>
                         <div class="custome-radio">
             
-                            <input class="form-check-input"  type="radio" name="payment_option" value="cash" id="exampleRadios4" checked="">
+                            <input class="form-check-input"  type="radio" name="payment_option" value="cash" id="exampleRadios3" checked="">
             
-                            <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>
+                            <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>
                         </div>
                         <div class="custome-radio">
-                            <input class="form-check-input" value="card"  type="radio" name="payment_option" id="exampleRadios5" checked="">
+                            <input class="form-check-input" value="card"  type="radio" name="payment_option" id="exampleRadios4" checked="">
             
-                            <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Cashpay</label>
+                            <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse"  aria-controls="paypal">Cashpay</label>
+                        </div>
+                        <div class="custome-radio">
+                            <input class="form-check-input" value="tadhaman"  type="radio" name="payment_option" id="exampleRadios5" checked="">
+            
+                            <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse"  aria-controls="paypal">Tadhaman</label>
                         </div>
                     </div>
                     <div class="payment-logo d-flex">

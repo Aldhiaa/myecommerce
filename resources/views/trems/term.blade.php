@@ -30,13 +30,14 @@
 <body>
 <?php
 $termsAndCon =App\Models\TermsAndCon::all();
+
 ?>
 <h1>Terms and Conditions</h1>
 
-@if($termsAndCon->count() > 0)
+@if($termsAndCon->count() >= 0)
     <ol>
         @foreach($termsAndCon as $term)
-            <li>{{ $term->content }}</li>
+            <li>{{ $term->text }}</li>
         @endforeach
     </ol>
 @else

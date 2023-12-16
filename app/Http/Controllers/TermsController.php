@@ -16,10 +16,14 @@ class TermsController extends Controller
    }
    
    public function store(Request $request){
-      $validation =$request->validate([
-          'trems.addterms' => 'required',
-      ]);
-      TermsAndCon::insert($request->term_text);
+      $validatedData = $request->validate([
+         'term_text' => 'required',
+     ]);
+ 
+     // Assuming TermsAndCon is an Eloquent model
+     TermsAndCon::create([
+         'text' => $validatedData['term_text'],
+     ]);
 
     return redirect()->route('add.terms.and.conditioins');
    }

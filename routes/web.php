@@ -11,6 +11,8 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\CashpayController;
 use App\Http\Controllers\TermsController;
+use App\Http\Controllers\KuraimiBankController;
+use App\Http\Controllers\TadhamanBankController;
 use App\Http\Controllers\CashONDeliveryController;
 use App\Http\Controllers\Backend\AdminShowOrderController;
 use App\Http\Controllers\Backend\BrandController;
@@ -98,6 +100,14 @@ Route::middleware(['auth','verified'])->group(function(){
     });
     Route::controller(CashpayController::class)->group(function(){
         Route::post('/cash/order' , 'cashOrder')->name('cash.order');
+    
+    });
+    Route::controller(KuraimiBankController::class)->group(function(){
+        Route::post('/kurimi/order' , 'kurimiOrder')->name('kurimi.order');
+    
+    });
+    Route::controller(TadhamanBankController::class)->group(function(){
+        Route::post('/tadhaman/order' , 'tadhamanOrder')->name('tadhaman.order');
     
     });
     Route::controller(CashONDeliveryController::class)->group(function(){

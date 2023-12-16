@@ -124,7 +124,7 @@ class CheckoutController extends Controller
         ];
         
         // Validate the request data
-        $request->validate($rules, $messages);
+        // $request->validate($rules, $messages);
         
         // Prepare the data for storing or further processing
         $data = [
@@ -147,7 +147,12 @@ class CheckoutController extends Controller
            return view('frontend.payment.stripe',compact('cartTotal','categories','data','setting'));
         }elseif ($request->payment_option == 'card'){
             return view('frontend.payment.cashpay',compact('cartTotal','categories','data','setting'));
-        }else{
+        }elseif ($request->payment_option == 'kurimi') {
+            return view('frontend.payment.kurimi',compact('cartTotal','categories','data','setting'));
+        }elseif ($request->payment_option == 'tadhaman') {
+            return view('frontend.payment.tadhaman',compact('cartTotal','categories','data','setting'));
+        }
+        else{
             return view('frontend.payment.cash',compact('cartTotal','categories','data','setting'));
         }
 

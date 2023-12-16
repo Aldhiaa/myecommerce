@@ -193,10 +193,12 @@ $setting =App\Models\SiteSetting::find(1);
         </div>
     </div>
     <div class="container pb-30 wow animate__animated animate__fadeInUp" data-wow-delay="0">
-        <div class="row align-items-center">
-            <div class="col-12 mb-30">
-                <div class="footer-bottom"></div>
-            </div>
+        <div class="row text-center">
+                <div class="footer-bottom">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i> تطوير 
+                            <a  href="https://wa.me//+967715876697" target="_blanck"> <i class="fa fa-send" aria-hidden="true"></i> Eng.Dhiaa Qahtan </a>
+                </div>
+         
         </div>
     </div>
 </footer>

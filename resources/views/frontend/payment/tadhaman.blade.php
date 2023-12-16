@@ -1,11 +1,10 @@
 @extends('frontend.master')
     <!-- Header  -->
     @include('frontend.body.header')
-    <script src="https://cdn.jsdelivr.net/npm/iframe_cashpay@1.1.1/index.js"></script>
     <!--End header-->
 @section('content')
 @section('title')
-   Cash Payment
+   Tadhaman Payment
 @endsection
 <main class="main">
     <div class="page-header breadcrumb-wrap">
@@ -19,7 +18,7 @@
     <div class="container mb-80 mt-50">
         <div class="row">
             <div class="col-lg-8 mb-40">
-                <h3 class="heading-2 mb-10">Cash Payment</h3>
+                <h3 class="heading-2 mb-10">Tadhaman Payment</h3>
                 <div class="d-flex justify-content-between">
 
                 </div>
@@ -92,14 +91,14 @@
     <div class="col-lg-6">
         <div class="border p-40 cart-totals ml-30 mb-50">
             <div class="d-flex align-items-end justify-content-between mb-30">
-                <img src="{{  asset('frontend\assets\imgs\pay\cashpay.png') }}" alt="" srcset="">
+                <img src="{{  asset('frontend\assets\imgs\pay\tadhaman.png') }}" alt="" srcset="">
             </div>
             <div class="divider-2 mb-30"></div>
             <div class="table-responsive order_table checkout">
-                <form action="{{ route('cash.order') }}" method="post" id="payment-form">
+                <form action="{{ route('tadhaman.order') }}" method="post" id="payment-form">
                     @csrf
                     <div class="form-row">
-                        <input type="number" name="CustomerCashPayCode" id="" placeholder="رقم التعريف الخاص بك">
+                        <input type="number" name="AccountNo" id="" placeholder="رقم التعريف الخاص بك">
                         <div id="card-errors" role="alert"></div>
                     </div>
                     <br>

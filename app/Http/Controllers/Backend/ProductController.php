@@ -54,7 +54,7 @@ class ProductController extends Controller
     
         $image = $request->file('product_thambnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/products/thambnail/'.$name_gen);
+        Image::make($image)->save('upload/products/thambnail/'.$name_gen);
         $save_url = 'upload/products/thambnail/'.$name_gen;
 
         $product_id = Product::insertGetId([
@@ -93,7 +93,7 @@ class ProductController extends Controller
          $images =$request->file('multi_img');
          foreach ($images as $image) {
             $make_name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(800,800)->save('upload/products/multi_img/'.$make_name);
+            Image::make($image)->save('upload/products/multi_img/'.$make_name);
             $upload_path = 'upload/products/multi_img/'.$make_name;
 
             Multiimage::insert([
@@ -155,7 +155,7 @@ class ProductController extends Controller
             
             $image = $request->file('product_thambnail');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(800,800)->save('upload/products/thambnail/'.$name_gen);
+            Image::make($image)->save('upload/products/thambnail/'.$name_gen);
             $save_url = 'upload/products/thambnail/'.$name_gen;
     
              if (file_exists($oldImage)) {
@@ -223,7 +223,7 @@ class ProductController extends Controller
             unlink($imgDel->photo_name);
 
             $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($img)->resize(800,800)->save('upload/products/multi_img/'.$make_name);
+            Image::make($img)->save('upload/products/multi_img/'.$make_name);
             $uploadPath = 'upload/products/multi_img/'.$make_name;
     
             Multiimage::where('id',$id)->update([
